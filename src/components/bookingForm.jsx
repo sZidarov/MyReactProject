@@ -23,7 +23,7 @@ export default function Bookingform() {
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <select className="custom-select border-0 px-4" >  {/*style="height: 47px;"*/}
+                                    <select className="custom-select border-0 px-4" style={{height: '47px'}}>  {/*style="height: 47px;"*/}
             
                                         <option defaultValue="1">Service 1</option>
                                         <option value="2">Service 2</option>

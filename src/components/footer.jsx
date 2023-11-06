@@ -32,28 +32,28 @@ export default function Footer() {
                 <div className="d-flex justify-content-start mt-4">
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
-                    // style="width: 36px; height: 36px;"
+                    style={{width: '36px', height: '36px'}}
                     href="#"
                   >
                     <i className="fab fa-twitter"></i>
                   </a>
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
-                    // style="width: 36px; height: 36px;"
-                    href="#"
+                    style={{width: '36px', height: '36px'}}
+                    href="http://facebook.com"
                   >
                     <i className="fab fa-facebook-f"></i>
                   </a>
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
-                    // style="width: 36px; height: 36px;"
+                    style={{width: '36px', height: '36px',}}
                     href="#"
                   >
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
-                    // style="width: 36px; height: 36px;"
+                    style={{width: '36px', height: '36px'}}
                     href="#"
                   >
                     <i className="fab fa-instagram"></i>
@@ -115,7 +115,7 @@ export default function Footer() {
       </div>
       <div
         className="container-fluid text-white py-4 px-sm-3 px-md-5"
-        // style="background: #111111;"
+        style={{background: '#111111'}}
       >
         <div className="row">
           <div className="col-md-6 text-center text-md-left mb-3 mb-md-0">

@@ -19,28 +19,28 @@ export default function Team() {
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-twitter"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-instagram"></i>
@@ -60,28 +60,28 @@ export default function Team() {
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-twitter"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-instagram"></i>
@@ -101,28 +101,28 @@ export default function Team() {
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-twitter"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-instagram"></i>
@@ -142,28 +142,28 @@ export default function Team() {
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-twitter"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a
                   className="btn btn-outline-primary rounded-circle text-center px-0"
-                //   style="width: 36px; height: 36px;"
+                  style={{width: '36px', height: '36px', }}
                   href="#"
                 >
                   <i className="fab fa-instagram"></i>

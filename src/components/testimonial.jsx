@@ -14,7 +14,7 @@ export default function Testimonial() {
               <img
                 className="img-fluid"
                 src="img/testimonial-1.jpg"
-                // style="width: 80px; height: 80px;"
+                style={{width: '80px', height: '80px'}}
                 alt=""
               />
               <div className="ml-3">
@@ -32,7 +32,7 @@ export default function Testimonial() {
               <img
                 className="img-fluid"
                 src="img/testimonial-2.jpg"
-                // style="width: 80px; height: 80px;"
+                style={{width: '80px', height: '80px'}}
                 alt=""
               />
               <div className="ml-3">
@@ -50,7 +50,7 @@ export default function Testimonial() {
               <img
                 className="img-fluid"
                 src="img/testimonial-3.jpg"
-                // style="width: 80px; height: 80px;"
+                style={{width: '80px', height: '80px'}}
                 alt=""
               />
               <div className="ml-3">
@@ -68,7 +68,7 @@ export default function Testimonial() {
               <img
                 className="img-fluid"
                 src="img/testimonial-4.jpg"
-                // style="width: 80px; height: 80px;"
+                style={{width: '80px', height: '80px'}}
                 alt=""
               />
               <div className="ml-3">
