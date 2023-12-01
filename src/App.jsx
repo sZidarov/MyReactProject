@@ -22,7 +22,7 @@ function App() {
     <Pricing></Pricing>
     <Team></Team>
     <Testimonial></Testimonial>
-    <Footer></Footer>
+    <Footer> </Footer>
   </div>
   )
 }
