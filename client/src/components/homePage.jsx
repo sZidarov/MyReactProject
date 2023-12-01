@@ -7,9 +7,9 @@ export default function Home() {
                         <img className="w-100" src="../../public/img/carousel-2.jpg" alt="Image" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div className="p-3" style={{maxWidth: '900px'}}> {/* style="max-width: 900px;" */}
-                                <h3 className="text-white mb-3 d-none d-sm-block">Best Pet Services</h3>
-                                <h1 className="display-3 text-white mb-3">Keep Your Pet Happy</h1>
-                                <h5 className="text-white mb-3 d-none d-sm-block">Duo nonumy et dolor tempor no et. Diam sit diam sit diam erat</h5>
+                                {/* <h3 className="text-white mb-3 d-none d-sm-block">Best Pet Services</h3> */}
+                                <h1 className="display-3 text-white mb-3">We Keep Your Pet Happy</h1>
+                                <h2 className="text-white mb-3 d-none d-sm-block">while you are away</h2>
                                 <a href="" className="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Book Now</a>
                                 <a href="" className="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Learn More</a>
                             </div>
