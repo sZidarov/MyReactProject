@@ -2326,6 +2326,7 @@ textarea.form-control {
 }
 
 .btn {
+  margin-left: 10px;
   display: inline-block;
   font-weight: 400;
   color: #777777;

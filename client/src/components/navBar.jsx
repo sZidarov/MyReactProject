@@ -13,18 +13,20 @@ export default function Navbar() {
                         <a href="index.html" className="nav-item nav-link active">Home</a>
                         <a href="about.html" className="nav-item nav-link">About</a>
                         <a href="service.html" className="nav-item nav-link">Service</a>
-                        <a href="price.html" className="nav-item nav-link">Price</a>
+                        {/* <a href="price.html" className="nav-item nav-link">Price</a> */}
                         <a href="booking.html" className="nav-item nav-link">Booking</a>
-                        <div className="nav-item dropdown">
+                        {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu rounded-0 m-0">
                                 <a href="blog.html" className="dropdown-item">Blog Grid</a>
                                 <a href="single.html" className="dropdown-item">Blog Detail</a>
                             </div>
-                        </div>
+                        </div> */}
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="" className="btn btn-lg btn-primary px-3 d-none d-lg-block">Get Quote</a>
+                    <a href="" className="btn btn-lg btn-primary px-3 d-none d-lg-block" >Login</a>
+                    <a href="" className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Register</a>
+                    <a href="" className="btn btn-lg btn-primary px-3 d-none d-lg-block">Logout</a>
                 </div>
             </nav>
         </div>
