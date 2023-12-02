@@ -4,27 +4,27 @@ export default function About() {
             <div className="row py-5">
                 <div className="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
                     <h4 className="text-secondary mb-3">About Us</h4>
-                    <h1 className="display-4 mb-4"><span className="text-primary">Boarding</span> & <span className="text-secondary">Daycare</span></h1>
-                    <h5 className="text-muted mb-3">Amet stet amet ut. Sit no vero vero no dolor. Sed erat ut sea. Just clita ut stet kasd at diam sit erat vero sit.</h5>
-                    <p className="mb-4">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                    <h1 className="display-4 mb-4"><span className="text-primary">We look after your Dog</span> & <span className="text-secondary">You travel</span></h1>
+                    <h5 className="text-muted mb-3">If you are about to go somewhere without your dog we have a solution for you!</h5>
+                    <p className="mb-4">Our team has expirience with dogs and everything one need to spend a few days with us. We care a lot for our guests and also provide: </p>
                     <ul className="list-inline">
-                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>Best In Industry</h5></li>
-                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>drun drun</h5></li>
-                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>Emergency Services</h5></li>
-                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>24/7 Customer Support</h5></li>
+                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>Fully sanitazed and comfy rooms</h5></li>
+                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>All day fun and games</h5></li>
+                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>Emergency Vet Services</h5></li>
+                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>24/7 Care taking</h5></li>
                     </ul>
                     <a href="" className="btn btn-lg btn-primary mt-3 px-4">Learn More</a>
                 </div>
                 <div className="col-lg-5">
                     <div className="row px-3">
                         <div className="col-12 p-0">
-                            <img className="img-fluid w-100" src="img/about-1.jpg" alt=""/>
-                        </div>
-                        <div className="col-6 p-0">
                             <img className="img-fluid w-100" src="img/about-2.jpg" alt=""/>
                         </div>
                         <div className="col-6 p-0">
-                            <img className="img-fluid w-100" src="img/about-3.jpg" alt=""/>
+                            <img className="img-fluid w-100" src="img/happy-2.jpg" alt=""/>
+                        </div>
+                        <div className="col-6 p-0">
+                            <img className="img-fluid w-100" src="img/about-1.jpg" alt=""/>
                         </div>
                     </div>
                 </div>

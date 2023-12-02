@@ -1,0 +1,122 @@
+.h1 {
+    color: #ED6436;
+    text-align: center;
+}
+
+.containerDetails {
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: auto;
+    background-color: white;
+    position: relative;
+}
+
+.img {
+    width: 300px;
+    height: auto;
+    order: 1;
+}
+
+.cardContainer {
+    display: flex;
+}
+
+
+.p {
+    margin: 20px;
+    text-align: justify;
+    order: 2;
+}
+
+.detailsh3 {
+    text-align: center;
+    color: rgb(101,193,120);
+}
+
+.pricePar {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.containerComments {
+    display: table-cell;
+    position:relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.containerComments ul{
+    list-style: none;
+    text-align: left;
+}
+.comment {
+    padding: 16px;
+    list-style-position: inside;
+    border: 2px solid;
+    border-color: black ;
+    border-radius: 10px;
+    background-color: rgb(157, 206, 58);
+    padding: 10px;
+    margin-top: 20px;
+    display: block;
+}
+
+.createComment {
+    display: block inline flex;
+    background-color: #ED6436;
+    padding: 20px;
+    border: 2px solid ;
+    border-radius: 10px;
+    width: 800px;
+    height: 250px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.createComment textarea {
+    width: 400px;
+    height: 100px;
+}
+
+.createComment a {
+    width: 400px;
+    display: block flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user {
+    color: black;
+    font-weight: bold;
+}
+
+.userComment {
+    color: rgb(51, 51, 51);
+    
+}
+
+.buttonsDetails {
+    display: flex;
+    justify-content: right;
+    /* margin-top: 55px; */
+}
+
+
+

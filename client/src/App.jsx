@@ -9,6 +9,7 @@ import Pricing from "./components/pricingPlan";
 import Team from "./components/teamPage";
 import Testimonial from "./components/testimonial";
 import Footer from "./components/footer";
+import Details from "./components/detailsPage";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
             <Bookingform></Bookingform>
             <About></About>
             <Services></Services>
+            <Details></Details>
             <Features></Features>
             <Pricing></Pricing>
             <Team></Team>
