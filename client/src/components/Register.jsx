@@ -13,27 +13,10 @@ export default function Register() {
         },
 
         validationSchema: Yup.object({
-            email: Yup.string().required("Email id required").email("Invalid email adress"),
+            email: Yup.string().required("Email id required").matches(/^\S+@\S+\.\S+$/, "Invalid email"),
             password: Yup.string().required("Password is required!").min(6, "Password must be atlest 6 characters"),
             rePass: Yup.string().required("Repeat password!").oneOf([Yup.ref('password'), null], "Passwords don't match"),
         })
-
-        // validate: (values) => {
-        //     const errors = {}
-        //     if(!values.email){
-        //         errors.email = "Email is required"
-        //     }
-        //     if(!values.password){
-        //         errors.password = "Password is required"
-        //     }
-        //     if(!values.rePass){
-        //         errors.rePass = "Repeat password"
-        //     }
-        //     if(values.password !== values.rePass){
-        //         errors.mismatch = "Passrods don't match !"
-        //     }
-        //     return errors;
-        // }
     });
 
     return (
