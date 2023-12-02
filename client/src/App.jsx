@@ -10,6 +10,8 @@ import Team from "./components/teamPage";
 import Testimonial from "./components/testimonial";
 import Footer from "./components/footer";
 import Details from "./components/detailsPage";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
     return (
@@ -17,7 +19,9 @@ function App() {
             <TopBar></TopBar>
             <Navbar></Navbar>
             <Home></Home>
-            <Bookingform></Bookingform>
+            {/* <Bookingform></Bookingform> */}
+            {/* <Login></Login> */}
+            <Register></Register>
             <About></About>
             <Services></Services>
             <Details></Details>

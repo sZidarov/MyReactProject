@@ -61,10 +61,10 @@ export default function Details() {
                 <form >
                     <textarea
                         name="comment"
-                        placeholder="Comment......"
+                        placeholder="Comment . . ."
                     ></textarea>
                     <a
-                        className="btn btn-lg btn-secondary px-3 d-none d-lg-block"
+                        className="btn btn-lg btn-secondary px-3 d-none d-lg-block border-dark"
                         onClick={()=>console.log("submit")}
                     >
                         Add Comment
