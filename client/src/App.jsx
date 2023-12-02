@@ -19,9 +19,9 @@ function App() {
             <TopBar></TopBar>
             <Navbar></Navbar>
             <Home></Home>
-            {/* <Bookingform></Bookingform> */}
-            <Login></Login>
-            <Register></Register>
+            <Bookingform></Bookingform>
+            {/* <Login></Login> */}
+            {/* <Register></Register> */}
             <About></About>
             <Services></Services>
             <Details></Details>
