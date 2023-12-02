@@ -8,6 +8,7 @@ export default function Bookingform() {
                             <form className="py-5">
                                 <div className="form-group">
                                     <input type="text" className="form-control border-0 p-4" placeholder="Your Name" required="required" />
+                                    <div style={{color: "yellow", fontSize: "bold"}}>Some error message</div>
                                 </div>
                                 <div className="form-group">
                                     <input type="email" className="form-control border-0 p-4" placeholder="Your Email" required="required" />
@@ -25,9 +26,9 @@ export default function Bookingform() {
                                 <div className="form-group">
                                     <select className="custom-select border-0 px-4" style={{height: '47px'}}>  {/*style="height: 47px;"*/}
             
-                                        <option defaultValue="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
+                                        <option defaultValue="1">Room 1</option>
+                                        <option value="2">Room 2</option>
+                                        <option value="3">Room 3</option>
                                     </select>
                                 </div>
                                 <div>
