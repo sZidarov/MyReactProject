@@ -9,6 +9,7 @@ export default function About() {
                     <p className="mb-4">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
                     <ul className="list-inline">
                         <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>Best In Industry</h5></li>
+                        <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>drun drun</h5></li>
                         <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>Emergency Services</h5></li>
                         <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>24/7 Customer Support</h5></li>
                     </ul>
