@@ -20,7 +20,7 @@ function App() {
             <Navbar></Navbar>
             <Home></Home>
             {/* <Bookingform></Bookingform> */}
-            {/* <Login></Login> */}
+            <Login></Login>
             <Register></Register>
             <About></About>
             <Services></Services>

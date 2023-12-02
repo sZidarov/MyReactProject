@@ -13,7 +13,7 @@ export default function Register() {
         },
 
         validationSchema: Yup.object({
-            email: Yup.string().required("Email id required").matches(/^\S+@\S+\.\S+$/, "Invalid email"),
+            email: Yup.string().required("Email is required!").matches(/^\S+@\S+\.\S+$/, "Invalid email"),
             password: Yup.string().required("Password is required!").min(6, "Password must be atlest 6 characters"),
             rePass: Yup.string().required("Repeat password!").oneOf([Yup.ref('password'), null], "Passwords don't match"),
         })
