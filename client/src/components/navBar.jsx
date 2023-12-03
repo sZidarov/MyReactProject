@@ -17,7 +17,7 @@ export default function Navbar() {
                         <Link to={Path.Booking} className="nav-item nav-link">Booking</Link>
                         <Link to={Path.Contacts} className="nav-item nav-link">Contact</Link>
                     </div>
-                    <Link to="/rooms/create" className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Create Room</Link>
+                    <Link to={Path.CreateRoom} className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Create Room</Link>
                     <Link to={Path.Login} className="btn btn-lg btn-primary px-3 d-none d-lg-block" >Login</Link>
                     <Link to={Path.Register} className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Register</Link>
                     <Link to={Path.Logout} className="btn btn-lg btn-primary px-3 d-none d-lg-block">Logout</Link>

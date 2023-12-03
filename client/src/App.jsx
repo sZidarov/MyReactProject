@@ -13,6 +13,7 @@ import Details from "./components/detailsPage";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Reservations from "./components/reservationsPage";
+import CreateRoom from "./components/createRoom";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path={Path.About} element={<About/>} />
                 <Route path={Path.Rooms} element={<RoomsCatalog/>} />
                 <Route path={Path.Booking} element={<Bookingform/>} />
+                <Route path={Path.CreateRoom} element={<CreateRoom/>} />
                 <Route path={Path.Contacts} element={<Contacts/>} />
                 <Route path={Path.Details} element={<Details/>} />
 

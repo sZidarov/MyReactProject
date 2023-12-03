@@ -54,8 +54,6 @@ export default function Register() {
                                 </div>
                                 <div className="form-group">
                                     <div
-                                        className="date"
-                                        id="date"
                                         data-target-input="nearest"
                                     >
                                         <input
@@ -82,8 +80,6 @@ export default function Register() {
                                 </div>
                                 <div className="form-group">
                                     <div
-                                        className="date"
-                                        id="date"
                                         data-target-input="nearest"
                                     >
                                         <input
@@ -113,6 +109,7 @@ export default function Register() {
                                     <button
                                         className="btn btn-dark btn-block border-0 py-3"
                                         type="submit"
+                                        style={{width: "330px"}}
                                     >
                                         Register
                                     </button>

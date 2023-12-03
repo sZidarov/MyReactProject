@@ -1,0 +1,28 @@
+{
+    "3564027f-adcd-4425-b2c0-1253d2386c0c": {
+        "roomName": "Single room",
+        "roomType": "Single luxury room",
+        "price": "112",
+        "imageUrl": "https://www.telegraph.co.uk/content/dam/family/2021/06/22/dog-hotel-love_4_trans_NvBQzQNjv4BqplGOf-dgG3z4gg9owgQTXH-5rYAcEMfZ-k6qzXXxMMM.jpg",
+        "description": "Only for rich dogs",
+        "_id": "3564027f-adcd-4425-b2c0-1253d2386c0c"
+    },
+    "c64db398-91cd-487c-b900-86058c0422f8": {
+        "roomName": "Big room",
+        "roomType": "Big shared room",
+        "price": "40",
+        "imageUrl": "https://www.oaksedgefarmdoghotel.co.uk/uploads/2/2/4/6/22461646/17505076-10155012422609627-8375391334228455452-o_orig.jpg",
+        "description": "The preferable choise",
+        "_id": "c64db398-91cd-487c-b900-86058c0422f8"
+    },
+    "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
+        "roomName": "Standard room",
+        "roomType": "Standard economy room",
+        "price": "222",
+        "imageUrl": "https://www.staydoghotel.com/wp-content/uploads/2017/03/DSC_0293-1.jpg",
+        "description": "Just the basics",
+        "_id": "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b"
+    }
+}
+
+          

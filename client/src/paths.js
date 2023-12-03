@@ -9,6 +9,7 @@ const Path = {
     Logout: '/logout',
     Register: '/register',
     Booking: '/book',
+    CreateRoom: '/rooms/create'
 
     // GameEdit: '/games/:gameId/edit',
     // GameDelete: '/games/:gameId/delete',

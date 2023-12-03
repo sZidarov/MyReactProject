@@ -129,6 +129,7 @@ export default function Bookingform() {
                                     <button
                                         className="btn btn-dark btn-block border-0 py-3"
                                         type="submit"
+                                        style={{width: "330px"}}
                                     >
                                         Book Now
                                     </button>

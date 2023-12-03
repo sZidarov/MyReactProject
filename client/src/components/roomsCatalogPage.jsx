@@ -1,5 +1,5 @@
 
-import { Link, useNavigate, useParams } from "react-router-dom"; // I need that to get the id from URL
+import { Link, } from "react-router-dom"; 
 
 export default function RoomsCatalog() {
     return (
@@ -32,3 +32,4 @@ export default function RoomsCatalog() {
         </div>
     )
 }
+

@@ -76,6 +76,8 @@ export default function Login() {
                                     <button
                                         className="btn btn-dark btn-block border-0 py-3 "
                                         type="submit"
+                                        style={{width: "330px"}}
+
                                     >
                                         Login
                                     </button>
