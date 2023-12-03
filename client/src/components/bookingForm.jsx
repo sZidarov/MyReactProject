@@ -3,18 +3,27 @@ import {useFormik} from "formik";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 import styles from './bookingForm.module.css'
+import * as Yup from "yup";
+
 
 export default function Bookingform() {
     const formik = useFormik({
         initialValues: {
             selectedDate: new Date(),
             selectedOption: "",
-            email: ''
-
+            email: '',
+            name: '',
         },
         onSubmit: (values) => {
             console.log("Form data:", values);
-        }
+        },
+        validationSchema: Yup.object({
+            email: Yup.string()
+                .required("Email is required!")
+                .matches(/^\S+@\S+\.\S+$/, "Invalid email!"),
+            name: Yup.string()
+            .required("Name is required!")
+        }),
     })
     return (
         <div className="container-fluid bg-light">
@@ -23,6 +32,30 @@ export default function Bookingform() {
                     <div className="col-lg-5">
                         <div className="bg-primary py-5 px-4 px-sm-5">
                             <form className="py-5" onSubmit={formik.handleSubmit}>
+                            <div className="form-group">
+                                    <input
+                                        type="text"
+                                        className="form-control border-0 p-4"
+                                        placeholder="Your name"
+                                        required="required"
+                                        name="name"
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values.name}
+                                    />
+                                    <div
+                                        style={{
+                                            color: "yellow",
+                                            fontSize: "bold",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        {formik.errors.name &&
+                                            formik.touched.name &&
+                                            formik.errors.name}
+                                    </div>
+                                    
+                                </div>
                                 <div className="form-group">
                                     <input
                                         type="email"
@@ -34,6 +67,17 @@ export default function Bookingform() {
                                         onBlur={formik.handleBlur}
                                         value={formik.values.email}
                                     />
+                                    <div
+                                        style={{
+                                            color: "yellow",
+                                            fontSize: "bold",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        {formik.errors.email &&
+                                            formik.touched.email &&
+                                            formik.errors.email}
+                                    </div>
                                 </div>
                                 <div className="form-group">
                                     <div

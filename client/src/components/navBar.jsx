@@ -24,6 +24,7 @@ export default function Navbar() {
                         </div> */}
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
                     </div>
+                    <a href="" className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Create Room</a>
                     <a href="" className="btn btn-lg btn-primary px-3 d-none d-lg-block" >Login</a>
                     <a href="" className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Register</a>
                     <a href="" className="btn btn-lg btn-primary px-3 d-none d-lg-block">Logout</a>
