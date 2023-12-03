@@ -1,3 +1,5 @@
+import Team from "./teamPage";
+
 export default function About() {
     return (
         <div className="container py-5">
@@ -13,7 +15,6 @@ export default function About() {
                         <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>Emergency Vet Services</h5></li>
                         <li><h5><i className="fa fa-check-double text-secondary mr-3"></i>24/7 Care taking</h5></li>
                     </ul>
-                    <a href="" className="btn btn-lg btn-primary mt-3 px-4">Learn More</a>
                 </div>
                 <div className="col-lg-5">
                     <div className="row px-3">
@@ -29,6 +30,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
+            <Team></Team>
         </div>
     )
 }

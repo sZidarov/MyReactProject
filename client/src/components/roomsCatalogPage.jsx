@@ -1,4 +1,4 @@
-export default function Services() {
+export default function RoomsCatalog() {
     return (
         <div className="container-fluid bg-light pt-5">
             <div className="container py-5">

@@ -1,4 +1,4 @@
-export default function Features() {
+export default function Contacts() {
     return (
         <div className="container">
             <div className="row align-items-center">

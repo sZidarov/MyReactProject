@@ -2,9 +2,9 @@ export default function Team() {
   return (
     <div className="container mt-5 pt-5 pb-3">
       <div className="d-flex flex-column text-center mb-5">
-        <h4 className="text-secondary mb-3">Team Member</h4>
+        <h4 className="text-secondary mb-3">Team Members</h4>
         <h1 className="display-4 m-0">
-          Meet Our <span className="text-primary">Team Member</span>
+          Meet Our <span className="text-primary">Team</span>
         </h1>
       </div>
       <div className="row">
