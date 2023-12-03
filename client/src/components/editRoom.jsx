@@ -1,16 +1,57 @@
 import { useFormik } from "formik";
-import * as Yup from "yup"
+import * as Yup from "yup";
 
-export default function CreateRoom () {
-    const formik = useFormik({
-        initialValues: {
+import * as roomsService from "../services/roomsService"
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+export default function EditRoom () {
+    const navigate = useNavigate();
+    const { roomId } = useParams();
+    const [room, setRoom] = useState(
+        {
             roomName: "",
             roomType: "",
-            imageUrl: "",
             description: "",
-            price: 0,
+            imageUrl: "",
+            price: "",
+        },
+        // {}
+    );
+    
+    useEffect(() => {
+            async function roomApi () {
+                const data = await roomsService.getOne(roomId)
+                setRoom(data)
+            } 
+            roomApi()
+            // roomsService.getOne(roomId).then(async(result) => {
+            // setRoom(await result);
+            // });
+    }, [roomId]);
+
+    
+    
+    
+    
+    const formik = useFormik({
+        enableReinitialize: true,
+        initialValues: {
+            roomName: room.roomName,
+            roomType: room.roomType,
+            imageUrl: room.imageUrl,
+            description: room.description,
+            price: room.price,
         },
         onSubmit: (values) => {
+            try {
+                roomsService.edit(roomId, values); // implement .edit() !!
+                navigate("/rooms");
+            } catch (error) {
+                //Error notification
+                console.log(error);
+            }
+
             console.log("onSubmit", values);
         },
 
@@ -29,7 +70,7 @@ export default function CreateRoom () {
             <div className="row align-items-center">
                 <div className="col-lg-5">
                     <div className="bg-primary py-5 px-4 px-sm-5">
-                        <h3 style={{textAlign: "center"}}>Create Room</h3>
+                        <h3 style={{textAlign: "center"}}>Edit Room</h3>
                         <form
                             className="py-5"
                             onSubmit={formik.handleSubmit}
@@ -41,7 +82,7 @@ export default function CreateRoom () {
                                     className="form-control border-0 p-4"
                                     placeholder="Room name"
                                     required="required"
-                                    value={formik.values.name}
+                                    value={formik.values.roomName}
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                 />
@@ -64,7 +105,7 @@ export default function CreateRoom () {
                                     className="form-control border-0 p-4"
                                     placeholder="Room type"
                                     required="required"
-                                    value={formik.values.type}
+                                    value={formik.values.roomType}
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                 />
@@ -163,7 +204,7 @@ export default function CreateRoom () {
                                     type="submit"
                                     style={{width: "330px"}}
                                 >
-                                    Create
+                                    Edit
                                 </button>
                             </div>
                         </form>

@@ -11,7 +11,7 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div className="navbar-nav mr-auto py-0">
-                        <Link to={Path.Home} className="nav-item nav-link active">Home</Link>
+                        <Link to={Path.Home} className="nav-item nav-link">Home</Link>
                         <Link to={Path.About} className="nav-item nav-link">About</Link>
                         <Link to={Path.Rooms} className="nav-item nav-link">Rooms</Link>
                         <Link to={Path.Booking} className="nav-item nav-link">Booking</Link>

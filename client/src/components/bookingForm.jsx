@@ -1,12 +1,16 @@
-import { useState } from "react";
 import {useFormik} from "formik";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 import styles from './bookingForm.module.css'
 import * as Yup from "yup";
 
+import { useNavigate } from "react-router-dom";
+import * as roomsService from "../services/roomsService";
+
 
 export default function Bookingform() {
+    const navigate = useNavigate();
+
     const formik = useFormik({
         initialValues: {
             selectedDate: new Date(),
@@ -14,8 +18,15 @@ export default function Bookingform() {
             email: '',
             name: '',
         },
-        onSubmit: (values) => {
-            console.log("Form data:", values);
+        onSubmit: async(values) => {
+            try {
+                await roomsService.create(values)
+                // navigate('/rooms')
+            } catch (error) {
+                //Error notification
+                console.log(error);
+            }
+            // console.log("Form data:", values);
         },
         validationSchema: Yup.object({
             email: Yup.string()
