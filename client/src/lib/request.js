@@ -6,14 +6,14 @@ const buildOptions = (data) => {
             "content-type": "application/json",
         };
     }
-    // const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem('accessToken');
     
-    // if(token) {
-    //     options.headers = {
-    //         ...options.headers,
-    //         'X-Authorization': token
-    //     }
-    // }
+    if(token) {
+        options.headers = {
+            ...options.headers,
+            'X-Authorization': token
+        }
+    }
     return options;
 };
 

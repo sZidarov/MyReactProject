@@ -1,14 +1,23 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useContext } from "react";
+import AuthContext from "../contexts/authContext";
+import { Link } from "react-router-dom";
+import Path from "../paths";
+
 
 export default function Login() {
+    const {loginSubmitHandler} = useContext(AuthContext)
+
+
     const formik = useFormik({
         initialValues: {
             email: "",
             password: "",
         },
         onSubmit: (values) => {
-            console.log("onSubmit", values);
+            // console.log("onSubmit", values);
+            loginSubmitHandler(values);
         },
         validationSchema: Yup.object({
             email: Yup.string()
@@ -90,12 +99,13 @@ export default function Login() {
                         <h4 className="text-secondary mb-3">
                             You don't have registration?
                         </h4>
-                        <button
+                        <Link
                             className="btn btn-dark border-0 py-3"
                             type="submit"
+                            to={Path.Register}
                         >
                             Register Now
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

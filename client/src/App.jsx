@@ -15,27 +15,33 @@ import Register from "./components/Register";
 import Reservations from "./components/reservationsPage";
 import CreateRoom from "./components/createRoom";
 import EditRoom from "./components/editRoom";
+import { AuthProvider } from "./contexts/authContext";
+import Logout from "./components/Logout";
 
 function App() {
     return (
         <>
-            <TopBar></TopBar>
-            <Navbar></Navbar>
-            <Routes fallback={<h1>Loading. . .</h1>}>
-                <Route path={Path.Home} element={<Home/>} />
-                <Route path={Path.Login} element={<Login/>} />
-                <Route path={Path.Register} element={<Register/>} />
-                <Route path={Path.About} element={<About/>} />
-                <Route path={Path.Rooms} element={<RoomsCatalog/>} />
-                <Route path={Path.Booking} element={<Bookingform/>} />
-                <Route path={Path.CreateRoom} element={<CreateRoom/>} />
-                <Route path={Path.Contacts} element={<Contacts/>} />
-                <Route path={Path.Details} element={<Details/>} />
-                <Route path={Path.EditRoom} element={<EditRoom/>} />
+            <AuthProvider>
+                <TopBar></TopBar>
+                <Navbar></Navbar>
+                <Routes fallback={<h1>Loading. . .</h1>}>
+                    <Route path={Path.Home} element={<Home/>} />
+                    <Route path={Path.Login} element={<Login/>} />
+                    <Route path={Path.Register} element={<Register/>} />
+                    <Route path={Path.About} element={<About/>} />
+                    <Route path={Path.Rooms} element={<RoomsCatalog/>} />
+                    <Route path={Path.Booking} element={<Bookingform/>} />
+                    <Route path={Path.CreateRoom} element={<CreateRoom/>} />
+                    <Route path={Path.Contacts} element={<Contacts/>} />
+                    <Route path={Path.Details} element={<Details/>} />
+                    <Route path={Path.EditRoom} element={<EditRoom/>} />
+                    <Route path={Path.Logout} element={<Logout />} />
 
-                {/* <Reservations></Reservations> */}
-            </Routes>
-            <Footer> </Footer>
+
+                    {/* <Reservations></Reservations> */}
+                </Routes>
+                <Footer> </Footer>
+            </AuthProvider>
         </>
     );
 }

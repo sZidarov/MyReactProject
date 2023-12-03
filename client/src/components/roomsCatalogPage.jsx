@@ -14,7 +14,7 @@ export default function RoomsCatalog() {
                 console.log(err);
             });
     }, []);
-    
+    console.log(rooms);
     return (
         <div className="container-fluid bg-light pt-5">
             <div className="container py-5">
@@ -28,25 +28,7 @@ export default function RoomsCatalog() {
                     <RoomListItem key={room._id} {...room} />
                 ))}
                 {rooms.length === 0 && <h3>No rooms added !</h3>}
-                {/* ---------------------------------------HARD CODED----------------------------------------------------------- */}
-                {/* <div className="row pb-3">
-                    <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                            <img src="/img/Room-1.jpg" alt="room-1" />
-                            <h3 className="mb-3">HARD CODED</h3>
-                            <p>
-                                Best for big breeds and dogs who are not
-                                good around other dogs
-                            </p>
-                            <Link
-                                className="text-uppercase font-weight-bold"
-                                to="/"
-                            >
-                                Details
-                            </Link>
-                        </div>
-                    </div>
-                </div> */}
+                
             </div>
         </div>
     );

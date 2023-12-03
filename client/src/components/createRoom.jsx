@@ -1,7 +1,14 @@
 import { useFormik } from "formik";
 import * as Yup from "yup"
+import { useNavigate } from "react-router-dom";
+import * as roomsService from "../services/roomsService"
 
 export default function CreateRoom () {
+    const navigate = useNavigate();
+
+
+
+
     const formik = useFormik({
         initialValues: {
             roomName: "",
@@ -10,8 +17,16 @@ export default function CreateRoom () {
             description: "",
             price: 0,
         },
-        onSubmit: (values) => {
-            console.log("onSubmit", values);
+        onSubmit: async(values) => {
+            try {
+                await roomsService.create(values)
+                navigate('/rooms')
+            } catch (error) {
+                //Error notification
+                console.log(error);
+            }
+
+            // console.log("onSubmit", values);
         },
 
         validationSchema: Yup.object({
