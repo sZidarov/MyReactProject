@@ -2,11 +2,12 @@ import { useState } from "react";
 import {useFormik} from "formik";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
+import styles from './bookingForm.module.css'
 
 export default function Bookingform() {
     const formik = useFormik({
         initialValues: {
-            selectedDate: null,
+            selectedDate: new Date(),
             selectedOption: "",
             email: ''
 
@@ -21,7 +22,7 @@ export default function Bookingform() {
                 <div className="row align-items-center">
                     <div className="col-lg-5">
                         <div className="bg-primary py-5 px-4 px-sm-5">
-                            <form className="py-5" onSubmit={formik.onSubmit}>
+                            <form className="py-5" onSubmit={formik.handleSubmit}>
                                 <div className="form-group">
                                     <input
                                         type="email"
@@ -29,6 +30,9 @@ export default function Bookingform() {
                                         placeholder="Your Email"
                                         required="required"
                                         name="email"
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values.email}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -38,6 +42,7 @@ export default function Bookingform() {
                                         data-target-input="nearest"
                                     >
                                         <DatePicker
+                                            className={styles.customDatepicker}
                                             selected={formik.values.selectedDate}
                                             onChange={(date)=>formik.setFieldValue('selectedDate', date)}
                                             dateFormat="dd/MM/yyyy"
@@ -63,7 +68,6 @@ export default function Bookingform() {
                                     <select
                                         className="custom-select border-0 px-4"
                                         style={{ height: "47px" }}
-                                        id="selectedOption"
                                         name="selectedOption"
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
