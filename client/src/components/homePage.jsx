@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+import Path from "../paths"
+
 export default function Home() {
     return (
         <div className="container-fluid p-0">
@@ -10,8 +13,8 @@ export default function Home() {
                                 {/* <h3 className="text-white mb-3 d-none d-sm-block">Best Pet Services</h3> */}
                                 <h1 className="display-3 text-white mb-3">We Keep Your Pet Happy</h1>
                                 <h2 className="text-white mb-3 d-none d-sm-block">while you are away</h2>
-                                <a href="" className="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Book Now</a>
-                                <a href="" className="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Learn More</a>
+                                <Link to={Path.Booking} className="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Book Now</Link>
+                                {/* <Link to={Path.Booking} className="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Learn More</Link> */}
                             </div>
                         </div>
                     </div>

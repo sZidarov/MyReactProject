@@ -5,7 +5,7 @@ export default function Details() {
             <div className={styles.containerDetails}>
                 <h1 className={styles.h1}>Details for "Some room"</h1>
                 <div className={styles.cardContainer}>
-                    <img className={styles.img} src="img/Room-1.jpg" alt="" />
+                    <img className={styles.img} src="/img/Room-1.jpg" alt="" />
                     <div className={styles.p}>
                         <h3 className={styles.detailsh3}>Room type</h3>
                         <div className={styles.decription}>
