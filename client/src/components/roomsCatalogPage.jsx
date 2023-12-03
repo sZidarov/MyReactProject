@@ -14,7 +14,7 @@ export default function RoomsCatalog() {
                 console.log(err);
             });
     }, []);
-    console.log(rooms);
+    
     return (
         <div className="container-fluid bg-light pt-5">
             <div className="container py-5">

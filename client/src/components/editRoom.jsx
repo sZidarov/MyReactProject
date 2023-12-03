@@ -20,14 +20,14 @@ export default function EditRoom () {
     );
     
     useEffect(() => {
-            async function roomApi () {
-                const data = await roomsService.getOne(roomId)
-                setRoom(data)
-            } 
-            roomApi()
-            // roomsService.getOne(roomId).then(async(result) => {
-            // setRoom(await result);
-            // });
+            // async function roomApi () {
+            //     const data = await roomsService.getOne(roomId)
+            //     setRoom(data)
+            // } 
+            // roomApi()
+            roomsService.getOne(roomId).then(async(result) => {
+            setRoom(await result);
+            });
     }, [roomId]);
 
     
