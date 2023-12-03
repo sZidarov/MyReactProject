@@ -6,11 +6,11 @@ import * as roomsService from "../services/roomsService";
 
 import { pathToUrl } from "../utils/pathUtils";
 import Path from "../paths";
-
+import AuthContext from "../contexts/authContext";
 
 
 export default function Details() {
-    // const navigate = useNavigate(AuthContext)
+    const navigate = useNavigate(AuthContext)
     // const { email, userId } = useContext(AuthContext);
     const [room, setRoom] = useState({});
 
@@ -67,12 +67,12 @@ export default function Details() {
                                 >
                                     Edit
                                 </Link>
-                                <Link
+                                <button
                                     className="btn btn-lg btn-primary px-3 d-none d-lg-block"
-                                    to="#"
+                                    onClick={deleteButtonClickHandler}
                                 >
                                     Delete
-                                </Link>
+                                </button>
                             </div>
                         </div>
                     </div>
