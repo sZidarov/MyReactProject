@@ -20,8 +20,9 @@ export default function Bookingform() {
         },
         onSubmit: async(values) => {
             try {
-                await roomsService.create(values)
+                // await roomsService.create(values)
                 // navigate('/rooms')
+                console.log(values);
             } catch (error) {
                 //Error notification
                 console.log(error);

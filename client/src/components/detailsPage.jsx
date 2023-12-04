@@ -95,22 +95,22 @@ export default function Details() {
 
                             {/* Display if admin is logged */}
                             {userId === room._ownerId && (
-                                
-    
-                            <div className={styles.buttonsDetails}>
-                                <Link
-                                    className="btn btn-lg btn-secondary px-3 d-none d-lg-block"
-                                    to={pathToUrl(Path.EditRoom, { roomId })}
-                                >
-                                    Edit
-                                </Link>
-                                <button
-                                    className="btn btn-lg btn-primary px-3 d-none d-lg-block"
-                                    onClick={deleteButtonClickHandler}
-                                >
-                                    Delete
-                                </button>
-                            </div>
+                                <div className={styles.buttonsDetails}>
+                                    <Link
+                                        className="btn btn-lg btn-secondary px-3 d-none d-lg-block"
+                                        to={pathToUrl(Path.EditRoom, {
+                                            roomId,
+                                        })}
+                                    >
+                                        Edit
+                                    </Link>
+                                    <button
+                                        className="btn btn-lg btn-primary px-3 d-none d-lg-block"
+                                        onClick={deleteButtonClickHandler}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
                             )}
                         </div>
                     </div>
@@ -151,37 +151,35 @@ export default function Details() {
                 </ul>
             </div>
             {isAuthenticated && (
-
-           
-            <div className={styles.createComment}>
-                <label>Add new comment</label>
-                <form onSubmit={formik.handleSubmit}>
-                    <textarea
-                        name="comment"
-                        placeholder="Comment . . ."
-                        onBlur={formik.handleBlur}
-                        onChange={formik.handleChange}
-                    ></textarea>
-                    <div
-                        style={{
-                            color: "yellow",
-                            fontSize: "bold",
-                            textAlign: "center",
-                        }}
-                    >
-                        {formik.errors.comment &&
-                            formik.touched.comment &&
-                            formik.errors.comment}
-                    </div>
-                    <button
-                        style={{ marginLeft: "auto", marginRight: "auto" }}
-                        className="btn btn-lg btn-secondary px-3 d-none d-lg-block border-dark"
-                        type="submit"
-                    >
-                        Add Comment
-                    </button>
-                </form>
-            </div>
+                <div className={styles.createComment}>
+                    <label>Add new comment</label>
+                    <form onSubmit={formik.handleSubmit}>
+                        <textarea
+                            name="comment"
+                            placeholder="Comment . . ."
+                            onBlur={formik.handleBlur}
+                            onChange={formik.handleChange}
+                        ></textarea>
+                        <div
+                            style={{
+                                color: "yellow",
+                                fontSize: "bold",
+                                textAlign: "center",
+                            }}
+                        >
+                            {formik.errors.comment &&
+                                formik.touched.comment &&
+                                formik.errors.comment}
+                        </div>
+                        <button
+                            style={{ marginLeft: "auto", marginRight: "auto" }}
+                            className="btn btn-lg btn-secondary px-3 d-none d-lg-block border-dark"
+                            type="submit"
+                        >
+                            Add Comment
+                        </button>
+                    </form>
+                </div>
             )}
         </div>
     );
