@@ -94,6 +94,9 @@ export default function Details() {
                             </p>
 
                             {/* Display if admin is logged */}
+                            {userId === room._ownerId && (
+                                
+    
                             <div className={styles.buttonsDetails}>
                                 <Link
                                     className="btn btn-lg btn-secondary px-3 d-none d-lg-block"
@@ -108,6 +111,7 @@ export default function Details() {
                                     Delete
                                 </button>
                             </div>
+                            )}
                         </div>
                     </div>
                 </div>
