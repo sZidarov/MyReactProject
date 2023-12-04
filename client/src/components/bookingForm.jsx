@@ -1,24 +1,37 @@
-import {useFormik} from "formik";
+import { useFormik } from "formik";
 import DatePicker from "react-datepicker";
-import 'react-datepicker/dist/react-datepicker.css'
-import styles from './bookingForm.module.css'
-import * as Yup from "yup";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./bookingForm.module.css";
 
-import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 import * as roomsService from "../services/roomsService";
 
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Bookingform() {
+    const [rooms, setRooms] = useState([]);
+
+    useEffect(() => {
+        roomsService
+            .getAll()
+            .then((result) => setRooms(result))
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+    console.log(rooms);
+
     const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
             selectedDate: new Date(),
             selectedOption: "",
-            email: '',
-            name: '',
+            email: "",
+            name: "",
         },
-        onSubmit: async(values) => {
+        onSubmit: async (values) => {
             try {
                 // await roomsService.create(values)
                 // navigate('/rooms')
@@ -29,22 +42,36 @@ export default function Bookingform() {
             }
             // console.log("Form data:", values);
         },
+
         validationSchema: Yup.object({
             email: Yup.string()
                 .required("Email is required!")
                 .matches(/^\S+@\S+\.\S+$/, "Invalid email!"),
-            name: Yup.string()
-            .required("Name is required!")
+            name: Yup.string().required("Name is required!"),
+            selectedDate: Yup.date().required("Date is required"),
         }),
-    })
+    });
+
+    // const isDateDisabled = (date) => {
+    //     // Disable dates 1 day and 5 days from today
+    //     const disabledDates = [addDays(new Date(), 1), addDays(new Date(), 5)];
+    //     return disabledDates.some(
+    //       (disabledDate) =>
+    //         date.toISOString().split('T')[0] === disabledDate.toISOString().split('T')[0]
+    //     );
+    // };
+
     return (
         <div className="container-fluid bg-light">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-5">
                         <div className="bg-primary py-5 px-4 px-sm-5">
-                            <form className="py-5" onSubmit={formik.handleSubmit}>
-                            <div className="form-group">
+                            <form
+                                className="py-5"
+                                onSubmit={formik.handleSubmit}
+                            >
+                                <div className="form-group">
                                     <input
                                         type="text"
                                         className="form-control border-0 p-4"
@@ -66,7 +93,6 @@ export default function Bookingform() {
                                             formik.touched.name &&
                                             formik.errors.name}
                                     </div>
-                                    
                                 </div>
                                 <div className="form-group">
                                     <input
@@ -98,11 +124,31 @@ export default function Bookingform() {
                                         data-target-input="nearest"
                                     >
                                         <DatePicker
+                                            isClearable
+                                            closeOnScroll={true}
                                             className={styles.customDatepicker}
-                                            selected={formik.values.selectedDate}
-                                            onChange={(date)=>formik.setFieldValue('selectedDate', date)}
+                                            selected={
+                                                formik.values.selectedDate
+                                            }
+                                            onChange={(date) =>
+                                                formik.setFieldValue(
+                                                    "selectedDate",
+                                                    date
+                                                )
+                                            }
                                             dateFormat="dd/MM/yyyy"
                                         />
+                                        <div
+                                            style={{
+                                                color: "yellow",
+                                                fontSize: "bold",
+                                                textAlign: "center",
+                                            }}
+                                        >
+                                            {formik.errors.selectedDate &&
+                                                formik.touched.selectedDate &&
+                                                formik.errors.selectedDate}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -128,20 +174,27 @@ export default function Bookingform() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.selectedOption}
-
                                     >
                                         {" "}
                                         {/*style="height: 47px;"*/}
-                                        <option value="1">Room 1</option>
+                                        {rooms.map((room) => (
+                                            <option
+                                                key={room._id}
+                                                value={rooms.roomName}
+                                            >
+                                                {room.roomName}
+                                            </option>
+                                        ))}
+                                        {/* <option value="1">Room 1</option>
                                         <option value="2">Room 2</option>
-                                        <option value="3">Room 3</option>
+                                        <option value="3">Room 3</option> */}
                                     </select>
                                 </div>
                                 <div>
                                     <button
                                         className="btn btn-dark btn-block border-0 py-3"
                                         type="submit"
-                                        style={{width: "330px"}}
+                                        style={{ width: "330px" }}
                                     >
                                         Book Now
                                     </button>
@@ -149,7 +202,7 @@ export default function Bookingform() {
                             </form>
                         </div>
                     </div>
-                    <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                    {/* <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
                         <h4 className="text-secondary mb-3">
                             Going for a vacation?
                         </h4>
@@ -219,7 +272,7 @@ export default function Bookingform() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
