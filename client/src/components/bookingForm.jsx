@@ -9,6 +9,7 @@ import * as roomsService from "../services/roomsService";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../contexts/authContext";
+import listDatesBetween from "../utils/listDatesBetween";
 
 export default function Bookingform() {
     const [rooms, setRooms] = useState([]);
@@ -38,8 +39,10 @@ export default function Bookingform() {
             try {
                 // await roomsService.create(values)
                 // navigate('/rooms')
-                console.log(values);
-                console.log(email);
+                console.log(listDatesBetween(values.startDate, values.endDate))
+                console.log(listDatesBetween(values.startDate, values.endDate)[2].getDate())
+                // console.log(values);
+                // console.log(email);
             } catch (error) {
                 //Error notification
                 console.log(error);

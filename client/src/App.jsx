@@ -38,8 +38,8 @@ function App() {
                     <Route path={Path.Logout} element={<Logout />} />
 
 
-                    {/* <Reservations></Reservations> */}
                 </Routes>
+                    <Reservations></Reservations>
                 <Footer> </Footer>
             </AuthProvider>
         </>
