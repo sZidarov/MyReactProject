@@ -7,10 +7,14 @@ import * as Yup from "yup";
 import * as roomsService from "../services/roomsService";
 
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import AuthContext from "../contexts/authContext";
 
 export default function Bookingform() {
     const [rooms, setRooms] = useState([]);
+    const {email} = useContext(AuthContext);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0)
 
     useEffect(() => {
         roomsService
@@ -20,15 +24,14 @@ export default function Bookingform() {
                 console.log(err);
             });
     }, []);
-    console.log(rooms);
 
     const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
-            selectedDate: new Date(),
+            startDate: new Date(),
+            endDate: null,
             selectedOption: "",
-            email: "",
             name: "",
         },
         onSubmit: async (values) => {
@@ -36,30 +39,21 @@ export default function Bookingform() {
                 // await roomsService.create(values)
                 // navigate('/rooms')
                 console.log(values);
+                console.log(email);
             } catch (error) {
                 //Error notification
                 console.log(error);
             }
-            // console.log("Form data:", values);
         },
 
         validationSchema: Yup.object({
-            email: Yup.string()
-                .required("Email is required!")
-                .matches(/^\S+@\S+\.\S+$/, "Invalid email!"),
             name: Yup.string().required("Name is required!"),
-            selectedDate: Yup.date().required("Date is required"),
+            startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future",{inclusive: true}),
+            endDate: Yup.date().required("End Date is required").when('startDate', (startDate, schema) => {
+                return schema.min(startDate, 'End date must be greater than start date');
+              }),
         }),
     });
-
-    // const isDateDisabled = (date) => {
-    //     // Disable dates 1 day and 5 days from today
-    //     const disabledDates = [addDays(new Date(), 1), addDays(new Date(), 5)];
-    //     return disabledDates.some(
-    //       (disabledDate) =>
-    //         date.toISOString().split('T')[0] === disabledDate.toISOString().split('T')[0]
-    //     );
-    // };
 
     return (
         <div className="container-fluid bg-light">
@@ -95,29 +89,7 @@ export default function Bookingform() {
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <input
-                                        type="email"
-                                        className="form-control border-0 p-4"
-                                        placeholder="Your Email"
-                                        required="required"
-                                        name="email"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.email}
-                                    />
-                                    <div
-                                        style={{
-                                            color: "yellow",
-                                            fontSize: "bold",
-                                            textAlign: "center",
-                                        }}
-                                    >
-                                        {formik.errors.email &&
-                                            formik.touched.email &&
-                                            formik.errors.email}
-                                    </div>
-                                </div>
-                                <div className="form-group">
+                                    <span style={{color: "black"}}>from</span>
                                     <div
                                         className="date"
                                         id="date"
@@ -128,12 +100,13 @@ export default function Bookingform() {
                                             closeOnScroll={true}
                                             className={styles.customDatepicker}
                                             selected={
-                                                formik.values.selectedDate
+                                                formik.values.startDate
                                             }
-                                            onChange={(date) =>
+                                            minDate={new Date()}
+                                            onChange={(sdate) =>
                                                 formik.setFieldValue(
-                                                    "selectedDate",
-                                                    date
+                                                    "startDate",
+                                                    sdate
                                                 )
                                             }
                                             dateFormat="dd/MM/yyyy"
@@ -145,27 +118,49 @@ export default function Bookingform() {
                                                 textAlign: "center",
                                             }}
                                         >
-                                            {formik.errors.selectedDate &&
-                                                formik.touched.selectedDate &&
-                                                formik.errors.selectedDate}
+                                            {formik.errors.startDate &&
+                                                formik.touched.startDate &&
+                                                formik.errors.startDate}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    {/* <div
-                                        className="time"
-                                        id="time"
+                                    <span style={{color: "black"}}>to</span>
+                                    <div
+                                        className="date"
+                                        id="date"
                                         data-target-input="nearest"
                                     >
-                                        <input
-                                            type="time"
-                                            className="form-control border-0 p-4 datetimepicker-input"
-                                            placeholder="Reservation Time"
-                                            data-target="#time"
-                                            data-toggle="datetimepicker"
+                                        <DatePicker
+                                            isClearable
+                                            closeOnScroll={true}
+                                            className={styles.customDatepicker}
+                                            selected={
+                                                formik.values.endDate
+                                            }
+                                            minDate={new Date()}
+                                            onChange={(edate) =>
+                                                formik.setFieldValue(
+                                                    "endDate",
+                                                    edate
+                                                )
+                                            }
+                                            dateFormat="dd/MM/yyyy"
                                         />
-                                    </div> */}
+                                        <div
+                                            style={{
+                                                color: "yellow",
+                                                fontSize: "bold",
+                                                textAlign: "center",
+                                            }}
+                                        >
+                                            {formik.errors.endDate &&
+                                                formik.touched.endDate &&
+                                                formik.errors.endDate}
+                                        </div>
+                                    </div>
                                 </div>
+                               
                                 <div className="form-group">
                                     <select
                                         className="custom-select border-0 px-4"
@@ -175,8 +170,6 @@ export default function Bookingform() {
                                         onBlur={formik.handleBlur}
                                         value={formik.values.selectedOption}
                                     >
-                                        {" "}
-                                        {/*style="height: 47px;"*/}
                                         {rooms.map((room) => (
                                             <option
                                                 key={room._id}
@@ -185,9 +178,6 @@ export default function Bookingform() {
                                                 {room.roomName}
                                             </option>
                                         ))}
-                                        {/* <option value="1">Room 1</option>
-                                        <option value="2">Room 2</option>
-                                        <option value="3">Room 3</option> */}
                                     </select>
                                 </div>
                                 <div>
