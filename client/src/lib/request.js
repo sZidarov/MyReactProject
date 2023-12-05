@@ -40,4 +40,5 @@ const request = async (method, url, data) => {
 export const get = request.bind(null, "GET"); // here we bind the first param to be 'GET' and expect only the other params of reques fn, it is called'partial application'
 export const post = request.bind(null, "POST");
 export const put = request.bind(null, "PUT");
+export const patch = request.bind(null, "PATCH");
 export const remove = request.bind(null, "DELETE");

@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup"
 import { useNavigate } from "react-router-dom";
 import * as roomsService from "../services/roomsService"
+import * as reservationsService from "../services/reservationsService"
 
 export default function CreateRoom () {
     const navigate = useNavigate();
@@ -20,6 +21,8 @@ export default function CreateRoom () {
         onSubmit: async(values) => {
             try {
                 await roomsService.create(values)
+                await reservationsService.create(values.roomName)
+                
                 navigate('/rooms')
             } catch (error) {
                 //Error notification

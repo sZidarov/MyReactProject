@@ -5,6 +5,7 @@ import styles from "./bookingForm.module.css";
 
 import * as Yup from "yup";
 import * as roomsService from "../services/roomsService";
+import * as reservationsService from "../services/reservationsService"
 
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
@@ -13,6 +14,7 @@ import listDatesBetween from "../utils/listDatesBetween";
 
 export default function Bookingform() {
     const [rooms, setRooms] = useState([]);
+    const [reservations, setReservations] = useState([]);
     const {email} = useContext(AuthContext);
     const today = new Date();
     today.setHours(0, 0, 0, 0)
@@ -26,9 +28,21 @@ export default function Bookingform() {
             });
     }, []);
 
+    useEffect(() => {
+        reservationsService.getAll()
+            .then((result)=>{
+                setReservations(Object.values(result))
+                console.log("fetchresult",result);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    },[])
+
     const navigate = useNavigate();
 
     const formik = useFormik({
+
         initialValues: {
             startDate: new Date(),
             endDate: null,
@@ -37,10 +51,22 @@ export default function Bookingform() {
         },
         onSubmit: async (values) => {
             try {
-                // await roomsService.create(values)
+
+                const selectedRoomReservations = reservations.find((e)=>e.hasOwnProperty(values.selectedOption))
+                const reservationData = {};
+                console.log('selected..',selectedRoomReservations);
+                
+                // the id is lost when taking the old reservations data from the server
+
+                // const oldReservations = Object.assign(selectedRoomReservations[values.selectedOption])
+
+                listDatesBetween(values.startDate, values.endDate).forEach(date=>reservationData[date] = email)
+                // console.log("Final data", {...reservationData});
+                await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{  ...reservationData})
+                console.log("From submit Form",reservationData);
+                console.log('reservations', reservations);
+                
                 // navigate('/rooms')
-                console.log(listDatesBetween(values.startDate, values.endDate))
-                console.log(listDatesBetween(values.startDate, values.endDate)[2].getDate())
                 // console.log(values);
                 // console.log(email);
             } catch (error) {

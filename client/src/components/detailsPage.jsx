@@ -1,6 +1,6 @@
 import styles from "./detailsPage.module.css";
 import { useContext, useEffect, useMemo, useReducer, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom"; // I need that to get the id from URL
+import { Link, useNavigate, useParams } from "react-router-dom"; 
 
 import * as roomsService from "../services/roomsService";
 import * as Yup from "yup";
@@ -53,21 +53,17 @@ export default function Details() {
 
         if (hasConfimed) {
             await roomsService.remove(roomId);
-
+            // TODO remove reservations from jsonstore in the server 
             navigate("/rooms");
         }
     };
 
-    // const { values, onChange, onSubmit } = useForm(addCommentHandler, {
-    //     comment: "",
-    // });
 
     const formik = useFormik({
         initialValues: {
             comment: "",
         },
         onSubmit: (values) => {
-            // console.log("onSubmit", values);
             addCommentHandler(values);
         },
         validationSchema: Yup.object({
