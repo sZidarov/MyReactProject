@@ -27,7 +27,7 @@ export default function Contacts() {
                     </h1>
                     <p className="mb-4">
                         The hotel is prividing care 24h for its guests. Reservations are made through the booking form. 
-                        Accommodations are made within the openening hours. Please do not hasitate to ask anything. Phone ilne is opened within opening hours.
+                        Accommodations are made within the openening hours. Please do not hasitate to ask anything. Phone line is opened within opening hours.
                     </p>
                     <div className="row py-2">
                         <div className="col-6">

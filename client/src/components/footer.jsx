@@ -122,15 +122,15 @@ export default function Footer() {
             <p className="m-0 text-white">
               &copy;{" "}
               <a className="text-white font-weight-bold" href="#">
-                Your Site Name
+                Dog Hotel
               </a>
-              . All Rights Reserved. Designed by
-              <a
+              . All Rights Reserved. 
+              {/* <a
                 className="text-white font-weight-bold"
                 href="https://htmlcodex.com"
               >
                 HTML Codex
-              </a>
+              </a> */}
             </p>
           </div>
           <div className="col-md-6 text-center text-md-right">
@@ -148,11 +148,6 @@ export default function Footer() {
               <li className="nav-item">
                 <a className="nav-link text-white py-0" href="#">
                   FAQs
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white py-0" href="#">
-                  Help
                 </a>
               </li>
             </ul>
