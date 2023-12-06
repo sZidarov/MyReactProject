@@ -32,7 +32,7 @@ export default function Bookingform() {
         reservationsService.getAll()
             .then((result)=>{
                 setReservations(Object.values(result))
-                console.log("fetchresult",result);
+                // console.log("fetchresult",Object.values(result));
             })
             .catch((err) => {
                 console.log(err);
@@ -56,13 +56,11 @@ export default function Bookingform() {
                 const reservationData = {};
                 console.log('selected..',selectedRoomReservations);
                 
-                // the id is lost when taking the old reservations data from the server
-
                 // const oldReservations = Object.assign(selectedRoomReservations[values.selectedOption])
 
                 listDatesBetween(values.startDate, values.endDate).forEach(date=>reservationData[date] = email)
                 // console.log("Final data", {...reservationData});
-                await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{  ...reservationData})
+                await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
                 console.log("From submit Form",reservationData);
                 console.log('reservations', reservations);
                 

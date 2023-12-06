@@ -13,7 +13,7 @@ export const create = async (roomName) => {
 };
 
 export const addNewReservation = async(roomId,roomName ,newData) => {
-    const result = await request.put(`${baseUrl}/${roomId}`,{[roomName]:{...newData}})
+    const result = await request.put(`${baseUrl}/${roomId}`,{[roomName]:{...newData}, '_id':roomId})
     return result
 }
 
