@@ -33,7 +33,7 @@ export default function Bookingform() {
         reservationsService.getAll()
             .then((result)=>{
                 setReservations(Object.values(result))
-                console.log("fetchresult",Object.values(result));
+                // console.log("fetchresult",Object.values(result));
             })
             .catch((err) => {
                 console.log(err);
@@ -55,19 +55,14 @@ export default function Bookingform() {
 
                 const selectedRoomReservations = reservations.find((e)=>e.hasOwnProperty(values.selectedOption))
                 const reservationData = {};
-                console.log('selected..',selectedRoomReservations);
+                // console.log('selected..',selectedRoomReservations);
                 
-                // const oldReservations = Object.assign(selectedRoomReservations[values.selectedOption])
-
                 const newReservationDatesArr = listDatesBetween(values.startDate.setHours(0, 0, 0, 0), values.endDate.setHours(0, 0, 0, 0))
                 newReservationDatesArr.forEach(date=>reservationData[date] = email)
-                // console.log("Final data", {...reservationData});
 
                 checkForExistingReservation(newReservationDatesArr, selectedRoomReservations)
 
                 await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
-                console.log("From submit Form",reservationData);
-                console.log('reservations', reservations);
                 
                 // navigate('/rooms')
                 // console.log(values);
@@ -82,7 +77,7 @@ export default function Bookingform() {
             name: Yup.string().required("Name is required!"),
             startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future"),
             endDate: Yup.date().required("End Date is required").min( Yup.ref('startDate'),
-            "Еnd date can't be before start date"
+            "End date can't be before start date"
           )
         }),
     });
