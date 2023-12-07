@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../contexts/authContext";
 import listDatesBetween from "../utils/listDatesBetween";
+import checkForExistingReservation from "../utils/existingReservationCheck";
 
 export default function Bookingform() {
     const [rooms, setRooms] = useState([]);
@@ -32,14 +33,14 @@ export default function Bookingform() {
         reservationsService.getAll()
             .then((result)=>{
                 setReservations(Object.values(result))
-                // console.log("fetchresult",Object.values(result));
+                console.log("fetchresult",Object.values(result));
             })
             .catch((err) => {
                 console.log(err);
             });
     },[])
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const formik = useFormik({
 
@@ -58,8 +59,12 @@ export default function Bookingform() {
                 
                 // const oldReservations = Object.assign(selectedRoomReservations[values.selectedOption])
 
-                listDatesBetween(values.startDate, values.endDate).forEach(date=>reservationData[date] = email)
+                const newReservationDatesArr = listDatesBetween(values.startDate.setHours(0, 0, 0, 0), values.endDate.setHours(0, 0, 0, 0))
+                newReservationDatesArr.forEach(date=>reservationData[date] = email)
                 // console.log("Final data", {...reservationData});
+
+                checkForExistingReservation(newReservationDatesArr, selectedRoomReservations)
+
                 await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
                 console.log("From submit Form",reservationData);
                 console.log('reservations', reservations);
@@ -77,7 +82,7 @@ export default function Bookingform() {
             name: Yup.string().required("Name is required!"),
             startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future"),
             endDate: Yup.date().required("End Date is required").min( Yup.ref('startDate'),
-            "end date can't be before start date"
+            "Еnd date can't be before start date"
           )
         }),
     });
