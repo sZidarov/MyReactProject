@@ -75,10 +75,10 @@ export default function Bookingform() {
 
         validationSchema: Yup.object({
             name: Yup.string().required("Name is required!"),
-            startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future",{inclusive: true}),
-            endDate: Yup.date().required("End Date is required").when('startDate', (startDate, schema) => {
-                return schema.min(startDate, 'End date must be greater than start date');
-              }),
+            startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future"),
+            endDate: Yup.date().required("End Date is required").min( Yup.ref('startDate'),
+            "end date can't be before start date"
+          )
         }),
     });
 
