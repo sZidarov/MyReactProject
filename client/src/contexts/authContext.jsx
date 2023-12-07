@@ -32,7 +32,7 @@ export const AuthProvider = ({   // This is a component that helps to outsource 
 
     const registerSubmitHandler = async (values) => {
         // Here i must hava validation for the "Confirm Password"
-
+        // If i try to register the same person i do not get error 
         const result = await authService.register(
             values.email,
             values.password
