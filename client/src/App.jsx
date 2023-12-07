@@ -36,10 +36,11 @@ function App() {
                     <Route path={Path.Details} element={<Details/>} />
                     <Route path={Path.EditRoom} element={<EditRoom/>} />
                     <Route path={Path.Logout} element={<Logout />} />
-
+                    
 
                 </Routes>
-                    <Reservations></Reservations>
+                
+                    {/* <Reservations></Reservations> */}
                 <Footer> </Footer>
             </AuthProvider>
         </>

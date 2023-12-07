@@ -12,10 +12,15 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../contexts/authContext";
 import listDatesBetween from "../utils/listDatesBetween";
 import checkForExistingReservation from "../utils/existingReservationCheck";
+import PopupReservation from "./popUpReservation";
 
 export default function Bookingform() {
+    // const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);
     const [reservations, setReservations] = useState([]);
+    const [existingReservation, setIsExistingReservation] = useState({})
+    const [confurmPopup, setConfurmPopup] = useState(false)
+    // const [confirmReservation, setConfirmReservation] = useState(false)
     const {email} = useContext(AuthContext);
     const today = new Date();
     today.setHours(0, 0, 0, 0)
@@ -33,14 +38,12 @@ export default function Bookingform() {
         reservationsService.getAll()
             .then((result)=>{
                 setReservations(Object.values(result))
-                // console.log("fetchresult",Object.values(result));
             })
             .catch((err) => {
                 console.log(err);
             });
     },[])
 
-    // const navigate = useNavigate();
 
     const formik = useFormik({
 
@@ -48,25 +51,37 @@ export default function Bookingform() {
             startDate: new Date(),
             endDate: null,
             selectedOption: "",
-            name: "",
+            // name: "",
         },
         onSubmit: async (values) => {
             try {
 
                 const selectedRoomReservations = reservations.find((e)=>e.hasOwnProperty(values.selectedOption))
                 const reservationData = {};
-                // console.log('selected..',selectedRoomReservations);
                 
                 const newReservationDatesArr = listDatesBetween(values.startDate.setHours(0, 0, 0, 0), values.endDate.setHours(0, 0, 0, 0))
                 newReservationDatesArr.forEach(date=>reservationData[date] = email)
 
-                checkForExistingReservation(newReservationDatesArr, selectedRoomReservations)
-
-                await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
+                const reservationsCheck = checkForExistingReservation(newReservationDatesArr, selectedRoomReservations)
+                if(reservationsCheck.isExisting){
+                    return setIsExistingReservation({'isExisting': true, 'takenDates':reservationsCheck.matchingDates})
+                }
                 
-                // navigate('/rooms')
-                // console.log(values);
-                // console.log(email);
+                setIsExistingReservation(()=>({'isExisting': false, 'takenDates':null}))
+
+                const hasConfimed = confirm(
+                    `Are you sure you want to make reservation on "${values.selectedOption}" for this period: ${values.startDate.toDateString()} - ${values.endDate.toDateString()}`
+                );
+        
+                if (hasConfimed) {
+                    console.log('successfuly made reservation');
+                    // await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
+                    // navigate('/my-reservations')
+                }
+                
+                // console.log(existingReservation);
+                // console.log(reservationsCheck);
+                
             } catch (error) {
                 //Error notification
                 console.log(error);
@@ -74,7 +89,7 @@ export default function Bookingform() {
         },
 
         validationSchema: Yup.object({
-            name: Yup.string().required("Name is required!"),
+            // name: Yup.string().required("Name is required!"),
             startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future"),
             endDate: Yup.date().required("End Date is required").min( Yup.ref('startDate'),
             "End date can't be before start date"
@@ -92,7 +107,7 @@ export default function Bookingform() {
                                 className="py-5"
                                 onSubmit={formik.handleSubmit}
                             >
-                                <div className="form-group">
+                                {/* <div className="form-group">
                                     <input
                                         type="text"
                                         className="form-control border-0 p-4"
@@ -114,7 +129,7 @@ export default function Bookingform() {
                                             formik.touched.name &&
                                             formik.errors.name}
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="form-group">
                                     <span style={{color: "black"}}>from</span>
                                     <div
@@ -217,8 +232,24 @@ export default function Bookingform() {
                                     </button>
                                 </div>
                             </form>
+                            
                         </div>
                     </div>
+
+                    {/* <img src="img/Room-1.jpg" alt="room-1" /> */}
+                    {existingReservation.isExisting && (
+                        <div className="col-md-6 col-lg-4 mb-4">
+                        <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                            <h3 className="mb-3">Sorry these dates are already taken:</h3>
+                            {existingReservation.takenDates.map(date=> <p key={date.toString()}>{date.toDateString()}</p>)}
+                            
+                            {/* <a className="text-uppercase font-weight-bold" href="">Cancel reservation</a> */}
+                            {/* <a className="text-uppercase text-secondary font-weight-bold" href="">Edit reservation</a> */}
+                        </div>
+                    </div>
+                    )}
+                    
+                    
                     {/* <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
                         <h4 className="text-secondary mb-3">
                             Going for a vacation?
@@ -292,6 +323,9 @@ export default function Bookingform() {
                     </div> */}
                 </div>
             </div>
+                    {/* <PopupReservation trigger={confurmPopup} setTrigger={setConfurmPopup} setIsConfirmed={setConfirmReservation}>
+                        <h3>Are you sure you want to confirm this reservation</h3>
+                    </PopupReservation> */}
         </div>
     );
 }

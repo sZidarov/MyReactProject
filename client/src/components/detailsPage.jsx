@@ -112,6 +112,7 @@ export default function Details() {
                     </div>
                 </div>
             </div>
+            <h2 className={styles.reviewsHeading}>User reviews:</h2>
             <div className={styles.containerComments}>
                 <ul>
                     {comments.map(
@@ -133,7 +134,7 @@ export default function Details() {
                     )}
 
                     {comments.length === 0 && (
-                        <p className="no-comment">No comments.</p>
+                        <p className={styles.noComment}>No reviews.</p>
                     )}
 
                     {/* <li className={styles.comment}>
@@ -148,7 +149,7 @@ export default function Details() {
             </div>
             {isAuthenticated && (
                 <div className={styles.createComment}>
-                    <label>Add new comment</label>
+                    <label>add new Review</label>
                     <form onSubmit={formik.handleSubmit}>
                         <textarea
                             name="comment"

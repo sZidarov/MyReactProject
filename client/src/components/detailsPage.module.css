@@ -96,7 +96,6 @@
 }
 
 .createComment a {
-    width: 400px;
     display: block flex;
     margin-left: auto;
     margin-right: auto;
@@ -111,11 +110,21 @@
     color: rgb(51, 51, 51);
     
 }
+.noComment {
+    display: inline;
+    justify-content: center;
+}
 
 .buttonsDetails {
     display: flex;
     justify-content: right;
     /* margin-top: 55px; */
+}
+
+.reviewsHeading {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 
