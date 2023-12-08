@@ -25,7 +25,7 @@ export default function Login() {
                 .matches(/^\S+@\S+\.\S+$/, "Invalid email!"),
             password: Yup.string()
                 .required("Password is required!")
-                .min(6, "Password must be atlest 6 characters"),
+                .min(5, "Password must be atlest 5 characters"),
         }),
     });
     return (
