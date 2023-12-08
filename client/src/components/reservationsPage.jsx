@@ -49,7 +49,7 @@ export default function MyReservations() {
     function makeDatesToPeriods(room) {
         const roomDates = getRoomDates(room);
         const myDates = getMyDates(roomDates);
-        console.log(myDates);
+        // console.log(myDates);
 
         const sortedDates = myDates.sort((a, b) => {
             a - b;
@@ -115,15 +115,17 @@ export default function MyReservations() {
                     </h1>
                 </div>
                 <div className="row pb-3">
-                    
-                    {reservations.map((res) => (
-                        
-                        <ReservationCard
-                            key={getRoomName(res)}
-                            roomName={getRoomName(res)}
-                            periods={makeDatesToPeriods(res)}
-                        />
-                    ))}
+                    {reservations.map((res) => {
+                        if(makeDatesToPeriods(res)[0] !== 'Invalid Date - Invalid Date'){
+                            return(
+                                    <ReservationCard
+                                    key={getRoomName(res)}
+                                    roomName={getRoomName(res)}
+                                    periods={makeDatesToPeriods(res)}
+                                    />
+                                )
+                        }
+                        })}
 
                     {/* <div className="col-md-6 col-lg-4 mb-4">
                         <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
