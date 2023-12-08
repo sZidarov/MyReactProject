@@ -90,7 +90,7 @@ export default function Details() {
                             </p>
 
                             {/* Display if admin is logged */}
-                            {userId === room._ownerId && (
+                            {email === "admin@abv.bg" && (
                                 <div className={styles.buttonsDetails}>
                                     <Link
                                         className="btn btn-lg btn-secondary px-3 d-none d-lg-block"

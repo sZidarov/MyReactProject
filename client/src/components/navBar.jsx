@@ -4,7 +4,7 @@ import AuthContext from "../contexts/authContext";
 import { useContext } from "react";
 
 export default function Navbar() {
-    const {isAuthenticated, username,} = useContext(AuthContext)
+    const {isAuthenticated, username, email} = useContext(AuthContext)
 
     return (
         <div className="container-fluid p-0">
@@ -29,9 +29,11 @@ export default function Navbar() {
                     {isAuthenticated && (
                         <>
                             <span style={{marginRight: "10px"}}>Welcome, {username}</span>
-                            <Link to={Path.CreateRoom} className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Create Room</Link>
                             <Link to={Path.Logout} className="btn btn-lg btn-primary px-3 d-none d-lg-block">Logout</Link>
                         </>
+                    )}
+                    {email === "admin@abv.bg" && (
+                            <Link to={Path.CreateRoom} className="btn btn-lg btn-secondary px-3 d-none d-lg-block">Create Room</Link>
                     )}
 
                     {!isAuthenticated && (

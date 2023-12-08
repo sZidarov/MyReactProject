@@ -3,12 +3,25 @@ import * as Yup from "yup"
 import { useNavigate } from "react-router-dom";
 import * as roomsService from "../services/roomsService"
 import * as reservationsService from "../services/reservationsService"
+import { useEffect, useState } from "react";
+import getReservationsCount from "../utils/getReservationsCount";
+
 
 export default function CreateRoom () {
     const navigate = useNavigate();
+    const [reservationsCount, setReservationsCount] = useState(0);
+    // const reservationsDate = await reservationsService.getAll()
 
+    useEffect(() => {
+       
+        // Here it is good to have some validation if there is no such room and navigates to page 404 for instance
 
+        reservationsService.getAll().then((result) => {
+            setReservationsCount(getReservationsCount(result));
+        });
+    }, []);
 
+    
 
     const formik = useFormik({
         initialValues: {
@@ -191,7 +204,7 @@ export default function CreateRoom () {
                     <h4 className="text-secondary mb-3">
                         Continue to improve. 
                     </h4>
-                    <p>Current bookings count:</p>
+                    <p>Current bookings count: {reservationsCount}</p>
                 </div>
             </div>
         </div>
