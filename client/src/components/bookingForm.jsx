@@ -19,7 +19,7 @@ export default function Bookingform() {
     const [rooms, setRooms] = useState([]);
     const [reservations, setReservations] = useState([]);
     const [existingReservation, setIsExistingReservation] = useState({})
-    const [confurmPopup, setConfurmPopup] = useState(false)
+    // const [confurmPopup, setConfurmPopup] = useState(false)
     // const [confirmReservation, setConfirmReservation] = useState(false)
     const {email} = useContext(AuthContext);
     const today = new Date();

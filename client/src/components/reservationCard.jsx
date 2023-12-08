@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
+import * as reservationsService from "../services/reservationsService"
 
 
 export default function ReservationCard({roomName, periods, roomId}) {
     
-    function cancelReservation( roomId, period){
-        console.log(roomId, period);
+    async function cancelReservation (roomId, period){
+        const dates = getDateFromPeriod(period);
+
+        const existingReservations = await reservationsService.getOne(roomId)
+        console.log(existingReservations);
+        console.log(dates);
+
+
         function getDateFromPeriod(period){
             const periodArr = period.split(' - ');
             const [sDay, sMonth, sYear] = periodArr[0].split('/');
@@ -14,7 +21,7 @@ export default function ReservationCard({roomName, periods, roomId}) {
             const periodInDays = 1
             console.log(periodArr);
             // console.log(startDate, endDate, periodInDays);
-            console.log(generatePeriodicDates(startDate, endDate, periodInDays));
+            const result = generatePeriodicDates(startDate, endDate, periodInDays);
 
             function generatePeriodicDates(startDate, endDate, periodInDays) {
                 const dates = [];
@@ -27,9 +34,8 @@ export default function ReservationCard({roomName, periods, roomId}) {
               
                 return dates;
               }
-
+            return result;
         }
-        getDateFromPeriod(period)
     }
 
    
