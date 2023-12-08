@@ -17,6 +17,8 @@ import MyReservations from "./components/reservationsPage";
 import CreateRoom from "./components/createRoom";
 import EditRoom from "./components/editRoom";
 import Logout from "./components/Logout";
+import AuthGuard from "./guards/authGuard";
+import AdminGuard from "./guards/adminGuard";
 
 function App() {
     return (
@@ -30,14 +32,17 @@ function App() {
                     <Route path={Path.Register} element={<Register/>} />
                     <Route path={Path.About} element={<About/>} />
                     <Route path={Path.Rooms} element={<RoomsCatalog/>} />
-                    <Route path={Path.Booking} element={<Bookingform/>} />
-                    <Route path={Path.CreateRoom} element={<CreateRoom/>} />
                     <Route path={Path.Contacts} element={<Contacts/>} />
                     <Route path={Path.Details} element={<Details/>} />
-                    <Route path={Path.EditRoom} element={<EditRoom/>} />
-                    <Route path={Path.Logout} element={<Logout />} />
-                    <Route path={Path.MyReservations} element={<MyReservations/>}/>
-
+                    <Route element={<AuthGuard/>}>
+                        <Route path={Path.Booking} element={<Bookingform/>} />
+                        <Route path={Path.Logout} element={<Logout />} />
+                        <Route path={Path.MyReservations} element={<MyReservations/>}/>
+                    </Route>
+                    <Route element={<AdminGuard/>}>
+                        <Route path={Path.CreateRoom} element={<CreateRoom/>} />
+                        <Route path={Path.EditRoom} element={<EditRoom/>} />
+                    </Route>
                 </Routes>
                 
                 <Footer> </Footer>
