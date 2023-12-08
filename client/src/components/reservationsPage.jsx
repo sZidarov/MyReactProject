@@ -27,6 +27,14 @@ export default function MyReservations() {
         }
     }
 
+    function getRoomId(roomData) {
+        for (const key in roomData) {
+            if (key == "_id") {
+                return roomData[key];
+            }
+        }
+    }
+
     function getRoomDates(roomData) {
         const roomName = getRoomName(roomData);
         for (const key in roomData) {
@@ -119,7 +127,8 @@ export default function MyReservations() {
                         if(makeDatesToPeriods(res)[0] !== 'Invalid Date - Invalid Date'){
                             return(
                                     <ReservationCard
-                                    key={getRoomName(res)}
+                                    key={getRoomId(res)}
+                                    roomId={getRoomId(res)}
                                     roomName={getRoomName(res)}
                                     periods={makeDatesToPeriods(res)}
                                     />
