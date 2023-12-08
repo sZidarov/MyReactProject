@@ -12,10 +12,10 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../contexts/authContext";
 import listDatesBetween from "../utils/listDatesBetween";
 import checkForExistingReservation from "../utils/existingReservationCheck";
-import PopupReservation from "./popUpReservation";
+// import PopupReservation from "./popUpReservation";
 
 export default function Bookingform() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);
     const [reservations, setReservations] = useState([]);
     const [existingReservation, setIsExistingReservation] = useState({})
@@ -75,19 +75,14 @@ export default function Bookingform() {
         
                 if (hasConfimed) {
                     console.log('successfuly made reservation');
-                    // await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
-                    // navigate('/my-reservations')
+                    await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
+                    navigate('/my-reservations')
                 }
-                
-                // console.log(existingReservation);
-                // console.log(reservationsCheck);
-                
             } catch (error) {
                 //Error notification
                 console.log(error);
             }
         },
-
         validationSchema: Yup.object({
             // name: Yup.string().required("Name is required!"),
             startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future"),
@@ -236,15 +231,11 @@ export default function Bookingform() {
                         </div>
                     </div>
 
-                    {/* <img src="img/Room-1.jpg" alt="room-1" /> */}
                     {existingReservation.isExisting && (
                         <div className="col-md-6 col-lg-4 mb-4">
                         <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
                             <h3 className="mb-3">Sorry these dates are already taken:</h3>
                             {existingReservation.takenDates.map(date=> <p key={date.toString()}>{date.toDateString()}</p>)}
-                            
-                            {/* <a className="text-uppercase font-weight-bold" href="">Cancel reservation</a> */}
-                            {/* <a className="text-uppercase text-secondary font-weight-bold" href="">Edit reservation</a> */}
                         </div>
                     </div>
                     )}

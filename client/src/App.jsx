@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./contexts/authContext";
 import Path from "./paths";
 
 import TopBar from "./components/topBar";
@@ -12,10 +13,9 @@ import Footer from "./components/footer";
 import Details from "./components/detailsPage";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Reservations from "./components/reservationsPage";
+import MyReservations from "./components/reservationsPage";
 import CreateRoom from "./components/createRoom";
 import EditRoom from "./components/editRoom";
-import { AuthProvider } from "./contexts/authContext";
 import Logout from "./components/Logout";
 
 function App() {
@@ -36,11 +36,10 @@ function App() {
                     <Route path={Path.Details} element={<Details/>} />
                     <Route path={Path.EditRoom} element={<EditRoom/>} />
                     <Route path={Path.Logout} element={<Logout />} />
-                    
+                    <Route path={Path.MyReservations} element={<MyReservations/>}/>
 
                 </Routes>
                 
-                    {/* <Reservations></Reservations> */}
                 <Footer> </Footer>
             </AuthProvider>
         </>

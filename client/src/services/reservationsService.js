@@ -6,6 +6,11 @@ export const getAll = async () => {
     return result;
 }
 
+export const getOne = async (roomId) => {
+    const result = await request.get(`${baseUrl}/${roomId}`);
+    return result;
+}
+
 export const create = async (roomName) => {
     const result = await request.post(baseUrl, {[roomName]:{}});
 

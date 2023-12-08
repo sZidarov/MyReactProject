@@ -6,6 +6,7 @@ const Path = {
     Details:'/rooms/:roomId',
     EditRoom: '/rooms/:roomId/edit',
     Reservations:'/reservations',
+    MyReservations:'/my-reservations',
     Login: '/login',
     Logout: '/logout',
     Register: '/register',

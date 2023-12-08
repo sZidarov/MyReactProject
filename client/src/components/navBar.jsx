@@ -19,9 +19,12 @@ export default function Navbar() {
                         <Link to={Path.About} className="nav-item nav-link">About</Link>
                         <Link to={Path.Rooms} className="nav-item nav-link">Rooms</Link>
                         {isAuthenticated && (
+                            <>
                             <Link to={Path.Booking} className="nav-item nav-link">Booking</Link>
+                            <Link to={Path.MyReservations} className="nav-item nav-link">My Reservations</Link>
+                            </>
                         )}
-                        <Link to={Path.Contacts} className="nav-item nav-link">Contact</Link>
+                        <Link to={Path.Contacts} className="nav-item nav-link">Contacts</Link>
                     </div>
                     {isAuthenticated && (
                         <>
