@@ -1,9 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as reservationsService from "../services/reservationsService";
 import { useState } from "react";
 
 export default function ReservationCard({ roomName, periods, roomId }) {
-    const navigate = useNavigate();
     const [usePeriods, setUsePeriods] = useState(periods);
     async function cancelReservation(roomId, period, roomName) {
         const datesToExclude = getDateFromPeriod(period).result;
@@ -32,7 +31,6 @@ export default function ReservationCard({ roomName, periods, roomId }) {
                     usePeriods
                 )
             );
-            // setUsePeriods()
         }
 
         function getDateFromPeriod(period) {
@@ -95,8 +93,6 @@ export default function ReservationCard({ roomName, periods, roomId }) {
 
     function resetPeriodsAfterDelete(requestToDelete, oldPeriods) {
         const formatedRequestToDelete = requestToDelete.join(" - ");
-        // console.log("comparing:", formatedRequestToDelete);
-        // console.log("with:", oldPeriods);
         const result = oldPeriods.filter(
             (period) => period != formatedRequestToDelete
         );
@@ -124,11 +120,6 @@ export default function ReservationCard({ roomName, periods, roomId }) {
                             </Link>
                         </div>
                     ))}
-
-                    {/* <a className="text-uppercase font-weight-bold" href="">
-                    Cancel reservation
-                </a> */}
-                    {/* <a className="text-uppercase text-secondary font-weight-bold" href="">Edit reservation</a> */}
                 </div>
             )}
         </div>

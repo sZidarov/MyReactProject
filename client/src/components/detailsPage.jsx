@@ -1,6 +1,6 @@
 import styles from "./detailsPage.module.css";
 import { useContext, useEffect, useMemo, useReducer, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom"; 
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import * as roomsService from "../services/roomsService";
 import * as Yup from "yup";
@@ -22,7 +22,12 @@ export default function Details() {
     const { roomId } = useParams();
 
     useEffect(() => {
-        roomsService.getOne(roomId).then(setRoom);
+        roomsService
+            .getOne(roomId)
+            .then(setRoom)
+            .catch((error) => {
+                console.log(error);
+            });
         // Here it is good to have some validation if there is no such room and navigates to page 404 for instance
 
         commentsService.getAll(roomId).then((result) => {
@@ -34,16 +39,19 @@ export default function Details() {
     }, [roomId]);
 
     const addCommentHandler = async (values) => {
-        // Here is good to implement try-catch
+        try {
+            const newComment = await commentsService.create(roomId, values.comment);
 
-        const newComment = await commentsService.create(roomId, values.comment);
+            newComment.owner = { email }; // This is in {} because the owner property is an object
 
-        newComment.owner = { email }; // This is in {} because the owner property is an object
-
-        dispatch({
+            dispatch({
             type: "ADD_COMMENT",
             payload: newComment,
         });
+        } catch (error) {
+            alert(error.message)
+        }
+        
     };
 
     const deleteButtonClickHandler = async () => {
@@ -52,12 +60,15 @@ export default function Details() {
         );
 
         if (hasConfimed) {
-            await roomsService.remove(roomId);
-            // TODO remove reservations from jsonstore in the server 
-            navigate("/rooms");
+            try {
+                await roomsService.remove(roomId);
+                // TODO remove reservations from jsonstore in the server
+                navigate("/rooms");
+            } catch (error) {
+                alert(error.message)
+            }
         }
     };
-
 
     const formik = useFormik({
         initialValues: {

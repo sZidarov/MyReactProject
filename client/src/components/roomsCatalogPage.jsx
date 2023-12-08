@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as roomsService from "../services/roomsService";
 import RoomListItem from "./roomListItem";
@@ -27,7 +26,6 @@ export default function RoomsCatalog() {
                     <RoomListItem key={room._id} {...room} />
                 ))}
                 {rooms.length === 0 && <h3>No rooms added !</h3>}
-                
             </div>
         </div>
     );

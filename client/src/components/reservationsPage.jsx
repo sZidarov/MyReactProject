@@ -57,7 +57,6 @@ export default function MyReservations() {
     function makeDatesToPeriods(room) {
         const roomDates = getRoomDates(room);
         const myDates = getMyDates(roomDates);
-        // console.log(myDates);
 
         const sortedDates = myDates.sort((a, b) => {
             a - b;
@@ -135,14 +134,6 @@ export default function MyReservations() {
                                 )
                         }
                         })}
-
-                    {/* <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                            <h3 className="mb-3">Big rooom</h3>
-                            <p>period 05.12.2023 - 08.12.2023</p>
-                            <a className="text-uppercase font-weight-bold" href="">Cancel reservation</a>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>

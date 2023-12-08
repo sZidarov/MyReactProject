@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import * as roomsService from "../services/roomsService";
+import * as reservationsService from "../services/reservationsService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getReservationsCount from "../utils/getReservationsCount";
@@ -27,9 +28,14 @@ export default function EditRoom() {
     useEffect(() => {
         // Here it is good to have some validation if there is no such room and navigates to page 404 for instance
 
-        reservationsService.getAll().then((result) => {
-            setReservationsCount(getReservationsCount(result));
-        });
+        reservationsService
+            .getAll()
+            .then((result) => {
+                setReservationsCount(getReservationsCount(result));
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
     }, []);
 
     const formik = useFormik({

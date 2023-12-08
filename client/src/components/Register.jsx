@@ -1,10 +1,9 @@
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
-import * as Yup from "yup"
+import * as Yup from "yup";
 import Path from "../paths";
 import { useContext } from "react";
 import AuthContext from "../contexts/authContext";
-
 
 export default function Register() {
     const { registerSubmitHandler } = useContext(AuthContext);
@@ -16,15 +15,24 @@ export default function Register() {
             rePass: "",
         },
         onSubmit: (values) => {
-            const registrationData = {email: values.email, password: values.password}
-            registerSubmitHandler(registrationData)
+            const registrationData = {
+                email: values.email,
+                password: values.password,
+            };
+            registerSubmitHandler(registrationData);
         },
 
         validationSchema: Yup.object({
-            email: Yup.string().required("Email is required!").matches(/^\S+@\S+\.\S+$/, "Invalid email"),
-            password: Yup.string().required("Password is required!").min(6, "Password must be atlest 6 characters"),
-            rePass: Yup.string().required("Repeat password!").oneOf([Yup.ref('password'), null], "Passwords don't match"),
-        })
+            email: Yup.string()
+                .required("Email is required!")
+                .matches(/^\S+@\S+\.\S+$/, "Invalid email"),
+            password: Yup.string()
+                .required("Password is required!")
+                .min(6, "Password must be atlest 6 characters"),
+            rePass: Yup.string()
+                .required("Repeat password!")
+                .oneOf([Yup.ref("password"), null], "Passwords don't match"),
+        }),
     });
 
     return (
@@ -61,9 +69,7 @@ export default function Register() {
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <div
-                                        data-target-input="nearest"
-                                    >
+                                    <div data-target-input="nearest">
                                         <input
                                             name="password"
                                             type="password"
@@ -87,9 +93,7 @@ export default function Register() {
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <div
-                                        data-target-input="nearest"
-                                    >
+                                    <div data-target-input="nearest">
                                         <input
                                             name="rePass"
                                             type="password"
@@ -117,7 +121,7 @@ export default function Register() {
                                     <button
                                         className="btn btn-dark btn-block border-0 py-3"
                                         type="submit"
-                                        style={{width: "330px"}}
+                                        style={{ width: "330px" }}
                                     >
                                         Register
                                     </button>

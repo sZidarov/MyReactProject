@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Team() {
   return (
     <div className="container mt-5 pt-5 pb-3">
@@ -17,34 +19,34 @@ export default function Team() {
                 <i>Founder & CEO</i>
               </div>
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
-                <a
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://twitter.com/"
                 >
                   <i className="fab fa-twitter"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.facebook.com/"
                 >
                   <i className="fab fa-facebook-f"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.linkedin.com/"
                 >
                   <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.instagram.com/"
                 >
                   <i className="fab fa-instagram"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -58,34 +60,34 @@ export default function Team() {
                 <i>Chef Executive</i>
               </div>
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
-                <a
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://twitter.com/"
                 >
                   <i className="fab fa-twitter"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.facebook.com/"
                 >
                   <i className="fab fa-facebook-f"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.linkedin.com/"
                 >
                   <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.instagram.com/"
                 >
                   <i className="fab fa-instagram"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -99,34 +101,34 @@ export default function Team() {
                 <i>Doctor</i>
               </div>
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
-                <a
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://twitter.com/"
                 >
                   <i className="fab fa-twitter"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.facebook.com/"
                 >
                   <i className="fab fa-facebook-f"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.linkedin.com/"
                 >
                   <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.instagram.com/"
                 >
                   <i className="fab fa-instagram"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -140,34 +142,34 @@ export default function Team() {
                 <i>Trainer</i>
               </div>
               <div className="team-social d-flex align-items-center justify-content-center bg-dark">
-                <a
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://twitter.com/"
                 >
                   <i className="fab fa-twitter"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.facebook.com/"
                 >
                   <i className="fab fa-facebook-f"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.linkedin.com/"
                 >
                   <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="btn btn-outline-primary rounded-circle text-center px-0"
                   style={{width: '36px', height: '36px', }}
-                  href="#"
+                  to="https://www.instagram.com/"
                 >
                   <i className="fab fa-instagram"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

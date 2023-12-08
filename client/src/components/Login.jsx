@@ -5,10 +5,8 @@ import AuthContext from "../contexts/authContext";
 import { Link } from "react-router-dom";
 import Path from "../paths";
 
-
 export default function Login() {
-    const {loginSubmitHandler} = useContext(AuthContext)
-
+    const { loginSubmitHandler } = useContext(AuthContext);
 
     const formik = useFormik({
         initialValues: {
@@ -16,7 +14,6 @@ export default function Login() {
             password: "",
         },
         onSubmit: (values) => {
-            // console.log("onSubmit", values);
             loginSubmitHandler(values);
         },
         validationSchema: Yup.object({
@@ -34,7 +31,10 @@ export default function Login() {
                 <div className="row align-items-center">
                     <div className="col-lg-5">
                         <div className="bg-primary py-5 px-4 px-sm-5">
-                            <form className="py-5" onSubmit={formik.handleSubmit}>
+                            <form
+                                className="py-5"
+                                onSubmit={formik.handleSubmit}
+                            >
                                 <div className="form-group">
                                     <input
                                         type="email"
@@ -85,12 +85,10 @@ export default function Login() {
                                     <button
                                         className="btn btn-dark btn-block border-0 py-3 "
                                         type="submit"
-                                        style={{width: "330px"}}
-
+                                        style={{ width: "330px" }}
                                     >
                                         Login
                                     </button>
-                                    
                                 </div>
                             </form>
                         </div>
