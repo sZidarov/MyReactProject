@@ -4,7 +4,7 @@
 
 Functionality:
 
-    Unregisterd users can view the available rooms catalog and the reviews left by other people below each room. Thay also have access to the "Home" page, "Login" and "Register" pages, about page and contacts page.
+  Unregisterd users can view the available rooms catalog and the reviews left by other people below each room. Thay also have access to the "Home" page, "Login" and "Register" pages, about page and contacts page.
 
 After successful register and login the user is redirected to Home page and given access to "Write a review", "Booking" and "My reservations" page, and of course - the Logout button.
 
@@ -14,7 +14,7 @@ This web site has also an "admin" role which have access to creating new rooms i
 
 Userd tools: 
 
-    For the whole client-site part is used React.js library. 
+  For the whole client-site part is used React.js library. 
 
 For the back-end part I used the softUni practice server to witch all fetch request are made and data is stored.
 Authetication is achieved through using authentications context and persisted state using custom react hook and context.Provider to wrap all context needing components.
