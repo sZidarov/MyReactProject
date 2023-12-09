@@ -48,9 +48,6 @@ export default function AllReservations() {
     function getMyDates(allDates) {
         const myDates = [];
         for (const date in allDates) {
-            // if (allDates[date] == email) {
-            //     myDates.push(date);
-            // }
             myDates.push(date);
         }
         return myDates;

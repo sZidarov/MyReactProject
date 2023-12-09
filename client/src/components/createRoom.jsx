@@ -40,7 +40,6 @@ export default function CreateRoom() {
                 console.log(error);
             }
 
-            // console.log("onSubmit", values);
         },
 
         validationSchema: Yup.object({

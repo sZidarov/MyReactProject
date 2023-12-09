@@ -12,15 +12,12 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../contexts/authContext";
 import listDatesBetween from "../utils/listDatesBetween";
 import checkForExistingReservation from "../utils/existingReservationCheck";
-// import PopupReservation from "./popUpReservation";
 
 export default function Bookingform() {
     const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);
     const [reservations, setReservations] = useState([]);
     const [existingReservation, setIsExistingReservation] = useState({})
-    // const [confurmPopup, setConfurmPopup] = useState(false)
-    // const [confirmReservation, setConfirmReservation] = useState(false)
     const {email} = useContext(AuthContext);
     const today = new Date();
     today.setHours(0, 0, 0, 0)
@@ -91,7 +88,6 @@ export default function Bookingform() {
             }
         },
         validationSchema: Yup.object({
-            // name: Yup.string().required("Name is required!"),
             startDate: Yup.date().required("Start Date is required").min(today, "Start date must be present or future"),
             endDate: Yup.date().required("End Date is required").min( Yup.ref('startDate'),
             "End date can't be before start date"
