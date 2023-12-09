@@ -8,7 +8,6 @@ export const getAll = async (roomId) => {
         load: `owner=_ownerId:users`,
     })
     const result = await request.get(`${baseUrl}?${query}`);
-    // const result = await request.get(`${baseUrl}?where=roomId=${roomId}&load=author=_ownerId:users`);
 
     return result;
 };

@@ -1,10 +1,11 @@
 import styles from "./detailsPage.module.css";
-import { useContext, useEffect, useMemo, useReducer, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import * as roomsService from "../services/roomsService";
 import * as Yup from "yup";
+import * as roomsService from "../services/roomsService";
 import * as commentsService from "../services/commentsService";
+import * as reservationsService from "../services/reservationsService";
 
 import { pathToUrl } from "../utils/pathUtils";
 import Path from "../paths";
@@ -16,10 +17,29 @@ export default function Details() {
     const navigate = useNavigate(AuthContext);
     const { email, userId, isAuthenticated } = useContext(AuthContext);
     const [room, setRoom] = useState({});
+    const [reservations, setReservations] = useState([]);
 
     const [comments, dispatch] = useReducer(reducer, []);
 
     const { roomId } = useParams();
+
+    useEffect(() => {
+        reservationsService
+            .getAll()
+            .then((result) => {
+                setReservations(Object.values(result));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+    function getRoomId(roomData) {
+        for (const key in roomData) {
+            if (key == "_id") {
+                return roomData[key];
+            }
+        }
+    }
 
     useEffect(() => {
         roomsService
@@ -40,18 +60,20 @@ export default function Details() {
 
     const addCommentHandler = async (values) => {
         try {
-            const newComment = await commentsService.create(roomId, values.comment);
+            const newComment = await commentsService.create(
+                roomId,
+                values.comment
+            );
 
             newComment.owner = { email }; // This is in {} because the owner property is an object
 
             dispatch({
-            type: "ADD_COMMENT",
-            payload: newComment,
-        });
+                type: "ADD_COMMENT",
+                payload: newComment,
+            });
         } catch (error) {
-            alert(error.message)
+            alert(error.message);
         }
-        
     };
 
     const deleteButtonClickHandler = async () => {
@@ -62,10 +84,16 @@ export default function Details() {
         if (hasConfimed) {
             try {
                 await roomsService.remove(roomId);
-                // TODO remove reservations from jsonstore in the server
+
+                reservations.map((res) => {
+                    if (res.hasOwnProperty(room.roomName)) {
+                        reservationsService.remove(res._id);
+                    }
+                });
+
                 navigate("/rooms");
             } catch (error) {
-                alert(error.message)
+                alert(error.message);
             }
         }
     };

@@ -8,8 +8,6 @@ export default function checkForExistingReservation(
         Object.values(existingReservations)[0]
     );
     for (const newDate of newResrvationArr) {
-        // console.log(newDate.toString());
-        // console.log(formatedExistingDateArr);
         for (const existingDate of formatedExistingDateArr) {
             if (newDate.toString() === existingDate) {
                 isExisting = true;
