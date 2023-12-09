@@ -1,4 +1,4 @@
-# Dog Hotel
+# Dog Hotel - Brief documentation
 
 "Dog Hotel" is a web platform which provides the service of a hotel where you can leave your dog for a few days while you are away.
 
