@@ -55,17 +55,18 @@ export default function Bookingform() {
         },
         onSubmit: async (values) => {
             try {
-
                 const selectedRoomReservations = reservations.find((e)=>e.hasOwnProperty(values.selectedOption))
                 const reservationData = {};
                 
                 const newReservationDatesArr = listDatesBetween(values.startDate.setHours(0, 0, 0, 0), values.endDate.setHours(0, 0, 0, 0))
                 newReservationDatesArr.forEach(date=>reservationData[date] = email)
-
-                const reservationsCheck = checkForExistingReservation(newReservationDatesArr, selectedRoomReservations)
-                if(reservationsCheck.isExisting){
+                if(selectedRoomReservations) {
+                    const reservationsCheck = checkForExistingReservation(newReservationDatesArr, selectedRoomReservations)
+                    if(reservationsCheck.isExisting){
                     return setIsExistingReservation({'isExisting': true, 'takenDates':reservationsCheck.matchingDates})
                 }
+                }
+                
                 
                 setIsExistingReservation(()=>({'isExisting': false, 'takenDates':null}))
 
@@ -75,7 +76,13 @@ export default function Bookingform() {
         
                 if (hasConfimed) {
                     console.log('successfuly made reservation');
-                    await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
+                    if(selectedRoomReservations) { 
+                        await reservationsService.addNewReservation(selectedRoomReservations._id, values.selectedOption ,{ ...selectedRoomReservations[values.selectedOption], ...reservationData})
+                    } else {
+                        const newReservation = await reservationsService.create(values.selectedOption)
+                        await reservationsService.addNewReservation(newReservation._id, values.selectedOption ,{ ...reservationData})
+
+                    }
                     navigate('/my-reservations')
                 }
             } catch (error) {

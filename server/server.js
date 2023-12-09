@@ -1341,6 +1341,7 @@
     var seedData = {
         rooms: {
             "3564027f-adcd-4425-b2c0-1253d2386c0c": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "roomName": "Single room",
                 "roomType": "Single luxury room",
                 "price": "112",
@@ -1349,6 +1350,7 @@
                 "_id": "3564027f-adcd-4425-b2c0-1253d2386c0c"
             },
             "c64db398-91cd-487c-b900-86058c0422f8": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "roomName": "Big room",
                 "roomType": "Big shared room",
                 "price": "40",
@@ -1357,6 +1359,7 @@
                 "_id": "c64db398-91cd-487c-b900-86058c0422f8"
             },
             "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "roomName": "Standard room",
                 "roomType": "Standard economy room",
                 "price": "222",
