@@ -19,6 +19,7 @@ import EditRoom from "./components/editRoom";
 import Logout from "./components/Logout";
 import AuthGuard from "./guards/authGuard";
 import AdminGuard from "./guards/adminGuard";
+import AllReservations from "./components/allReservationsPage";
 
 function App() {
     return (
@@ -38,6 +39,7 @@ function App() {
                         <Route path={Path.Booking} element={<Bookingform/>} />
                         <Route path={Path.Logout} element={<Logout />} />
                         <Route path={Path.MyReservations} element={<MyReservations/>}/>
+                        <Route path={Path.AllReservations} element={<AllReservations/>}/>
                     </Route>
                     <Route element={<AdminGuard/>}>
                         <Route path={Path.CreateRoom} element={<CreateRoom/>} />

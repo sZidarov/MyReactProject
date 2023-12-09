@@ -11,11 +11,8 @@ const Path = {
     Logout: '/logout',
     Register: '/register',
     Booking: '/book',
-    CreateRoom: '/rooms/create'
-
-    // GameEdit: '/games/:gameId/edit',
-    // GameDelete: '/games/:gameId/delete',
-    // GameDetails: '/games/:gameId',
+    CreateRoom: '/rooms/create',
+    AllReservations:'/all-reservations'
 }
 
 export default Path

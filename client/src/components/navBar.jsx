@@ -38,12 +38,22 @@ export default function Navbar() {
                                 >
                                     Booking
                                 </Link>
-                                <Link
-                                    to={Path.MyReservations}
+                                {email !== "admin@abv.bg" && (
+                                    <Link
+                                        to={Path.MyReservations}
+                                        className="nav-item nav-link"
+                                    >
+                                        My Reservations
+                                    </Link>
+                                )}
+                                {email === "admin@abv.bg" && (
+                                    <Link
+                                    to={Path.AllReservations}
                                     className="nav-item nav-link"
                                 >
-                                    My Reservations
+                                    All Reservations
                                 </Link>
+                                )}
                             </>
                         )}
                         <Link to={Path.Contacts} className="nav-item nav-link">
