@@ -1344,7 +1344,7 @@
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "roomName": "Single room",
                 "roomType": "Single luxury room",
-                "price": "112",
+                "price": "63",
                 "imageUrl": "https://www.telegraph.co.uk/content/dam/family/2021/06/22/dog-hotel-love_4_trans_NvBQzQNjv4BqplGOf-dgG3z4gg9owgQTXH-5rYAcEMfZ-k6qzXXxMMM.jpg",
                 "description": "Only for rich dogs",
                 "_id": "3564027f-adcd-4425-b2c0-1253d2386c0c"
@@ -1362,7 +1362,7 @@
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "roomName": "Standard room",
                 "roomType": "Standard economy room",
-                "price": "222",
+                "price": "22",
                 "imageUrl": "https://www.staydoghotel.com/wp-content/uploads/2017/03/DSC_0293-1.jpg",
                 "description": "Just the basics",
                 "_id": "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b"
