@@ -1,0 +1,16 @@
+.heading {
+    display: flex; 
+    justify-content: center;
+    color: rgb(237,100,54);
+    padding-top: 100px;
+    padding-bottom: 30px;
+    font-size: 200px;
+    font-weight: bold;
+}
+
+.secondHeading {
+    display: flex; 
+    justify-content: center;
+    padding-bottom: 20px;
+    font-weight: bold;
+}

@@ -9,11 +9,8 @@ import getReservationsCount from "../utils/getReservationsCount";
 export default function CreateRoom() {
     const navigate = useNavigate();
     const [reservationsCount, setReservationsCount] = useState(0);
-    // const reservationsDate = await reservationsService.getAll()
 
     useEffect(() => {
-        // Here it is good to have some validation if there is no such room and navigates to page 404 for instance
-
         reservationsService
             .getAll()
             .then((result) => {

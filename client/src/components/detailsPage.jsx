@@ -47,8 +47,8 @@ export default function Details() {
             .then(setRoom)
             .catch((error) => {
                 console.log(error);
+                navigate('/404')
             });
-        // Here it is good to have some validation if there is no such room and navigates to page 404 for instance
 
         commentsService.getAll(roomId).then((result) => {
             dispatch({

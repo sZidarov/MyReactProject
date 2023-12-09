@@ -102,29 +102,7 @@ export default function Bookingform() {
                                 className="py-5"
                                 onSubmit={formik.handleSubmit}
                             >
-                                {/* <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0 p-4"
-                                        placeholder="Your name"
-                                        required="required"
-                                        name="name"
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        value={formik.values.name}
-                                    />
-                                    <div
-                                        style={{
-                                            color: "yellow",
-                                            fontSize: "bold",
-                                            textAlign: "center",
-                                        }}
-                                    >
-                                        {formik.errors.name &&
-                                            formik.touched.name &&
-                                            formik.errors.name}
-                                    </div>
-                                </div> */}
+                                
                                 <div className="form-group">
                                     <span style={{color: "black"}}>from</span>
                                     <div
@@ -239,84 +217,9 @@ export default function Bookingform() {
                         </div>
                     </div>
                     )}
-                    
-                    
-                    {/* <div className="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
-                        <h4 className="text-secondary mb-3">
-                            Going for a vacation?
-                        </h4>
-                        <h1 className="display-4 mb-4">
-                            Book For{" "}
-                            <span className="text-primary">Your Pet</span>
-                        </h1>
-                        <p>
-                            Labore vero lorem eos sed aliquy ipsum aliquy sed.
-                            Vero dolore dolore takima ipsum lorem rebum
-                        </p>
-                        <div className="row py-2">
-                            <div className="col-sm-6">
-                                <div className="d-flex flex-column">
-                                    <div className="d-flex align-items-center mb-2">
-                                        <h1 className="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
-                                        <h5 className="text-truncate m-0">
-                                            Pet Boarding
-                                        </h5>
-                                    </div>
-                                    <p>
-                                        Diam amet eos at no eos sit lorem, amet
-                                        rebum ipsum clita stet
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="d-flex flex-column">
-                                    <div className="d-flex align-items-center mb-2">
-                                        <h1 className="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
-                                        <h5 className="text-truncate m-0">
-                                            Pet Feeding
-                                        </h5>
-                                    </div>
-                                    <p>
-                                        Diam amet eos at no eos sit lorem, amet
-                                        rebum ipsum clita stet
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="d-flex flex-column">
-                                    <div className="d-flex align-items-center mb-2">
-                                        <h1 className="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
-                                        <h5 className="text-truncate m-0">
-                                            Pet Grooming
-                                        </h5>
-                                    </div>
-                                    <p className="m-0">
-                                        Diam amet eos at no eos sit lorem, amet
-                                        rebum ipsum clita stet
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="d-flex flex-column">
-                                    <div className="d-flex align-items-center mb-2">
-                                        <h1 className="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
-                                        <h5 className="text-truncate m-0">
-                                            Pet Tranning
-                                        </h5>
-                                    </div>
-                                    <p className="m-0">
-                                        Diam amet eos at no eos sit lorem, amet
-                                        rebum ipsum clita stet
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
-                    {/* <PopupReservation trigger={confurmPopup} setTrigger={setConfurmPopup} setIsConfirmed={setConfirmReservation}>
-                        <h3>Are you sure you want to confirm this reservation</h3>
-                    </PopupReservation> */}
+                    
         </div>
     );
 }

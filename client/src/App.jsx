@@ -21,6 +21,7 @@ import AuthGuard from "./guards/authGuard";
 import AdminGuard from "./guards/adminGuard";
 import AllReservations from "./components/allReservationsPage";
 import ErrorBoundary from "./components/ErrorBounary";
+import NotFound from "./components/404";
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                 <AuthProvider>
                     <TopBar></TopBar>
                     <Navbar></Navbar>
+
                     <Routes fallback={<h1>Loading. . .</h1>}>
                         <Route path={Path.Home} element={<Home/>} />
                         <Route path={Path.Login} element={<Login/>} />
@@ -47,8 +49,9 @@ function App() {
                             <Route path={Path.CreateRoom} element={<CreateRoom/>} />
                             <Route path={Path.EditRoom} element={<EditRoom/>} />
                         </Route>
+                        <Route path='*' element={<NotFound/>} />
                     </Routes>
-                    
+
                     <Footer> </Footer>
                 </AuthProvider>
             </ErrorBoundary>
