@@ -1,4 +1,7 @@
-const baseUrl = "http://localhost:3030/jsonstore/reservations";
+// const baseUrl = "http://localhost:3030/jsonstore/reservations";
+const baseUrl = `${import.meta.env.VITE_API_URL}/jsonstore/reservations`
+
+
 import * as request from '../lib/request';
 
 export const getAll = async () => {

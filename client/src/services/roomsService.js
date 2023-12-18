@@ -1,4 +1,7 @@
-const baseUrl = "http://localhost:3030/data/rooms";
+// const baseUrl = "http://localhost:3030/data/rooms";
+const baseUrl = `${import.meta.env.VITE_API_URL}/data/rooms`;
+
+
 import * as request from '../lib/request';
 
 export const getAll = async () => {

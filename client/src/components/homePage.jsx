@@ -16,7 +16,7 @@ export default function Home() {
                     <div className="carousel-item">
                         <img
                             className="w-100"
-                            src="../../public/img/carousel-2.jpg"
+                            src="img/carousel-2.jpg"
                             alt="Image"
                         />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
